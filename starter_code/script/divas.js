@@ -1,4 +1,4 @@
-class Magic{
+class Diva {
   constructor(game){
     this.game = game;
     this.column = 0;
@@ -10,8 +10,8 @@ class Magic{
 
     context.save();
 
-    context.fillStyle = 'yellow';
-    context.fillRect(this.column * GRID_SIZE,this.row * GRID_SIZE,100,context.canvas.height);
+    context.fillStyle = 'green';
+    context.fillRect((-this.column + INITIAL_RX) * GRID_SIZE,(INITIAL_RY - this.row)* GRID_SIZE,50,50);
     
     context.restore();
   }
