@@ -1,54 +1,45 @@
-class KeyboardController {
-  constructor (game) {
-    this.game = game;
-  }
-  setKeyBindings () {
-    const reactToKeyPress = this.reactToKeyPress;
-    window.addEventListener('keydown', reactToKeyPress);
+class KeyboardController{
+  constructor(game){
+    this.game=game;
+
+    
   }
 
-  //Direção para cada personagem:
-  reactToKeyPress (event) {
-    //console.log(event);
-    const key = event.keyCode;
+  setKeyBindings(){
+    window.addEventListener('keydown', event => {
+      // Stop the default behavior (moving the screen to the left/up/right/down)
+      event.preventDefault();
 
-    switch(key){
-      case 32:
-        //prevent default - keys
-        event.preventDefault();
-        console.log('espaço - Ataque');
-        //this.game.directionDiva('left');
-        break;
-      case 37:
-        //prevent default - keys
-        event.preventDefault();
-        console.log('Apertou left');
-        this.game.directionDiva('left');
+      //console.log(event);
 
-        //console.log('this.game.diva.column');
-        break;
-      case 39:
-        //prevent default - keys
-        event.preventDefault();
-        console.log('right');
-        this.game.directionDiva('right');
-        break;
-      case 40:
-        //prevent default - keys
-        event.preventDefault();
-        console.log('down');
-        this.game.directionDiva('down');
-        break;
-      case 38:
-        //prevent default - keys
-        event.preventDefault();
-        console.log('up');
-        this.game.directionDiva('up');
-        break;
-    }
+      //KEY BEHAVIOR!!
+      switch (event.keyCode) {
+
+        //-DIVA CONTROLER ------:
+          case 37:
+            console.log('LEFT');
+            this.game.diva.position('left');
+            break;
+
+          case 39:
+            console.log('Right');
+            this.game.diva.position('right');
+            break;
+          
+          case 40:
+            console.log('down');
+            this.game.diva.position('down');
+            break;
+
+          case 32:
+            console.log('Jump');
+            this.game.diva.position('up');       
+            break;
+            
+      }
+
+          
+    });
   }
- 
 
- 
- }
- 
+}

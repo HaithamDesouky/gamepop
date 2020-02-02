@@ -1,8 +1,11 @@
+
 class Magic{
   constructor(game){
-    this.game = game;
+    this.game=game;
+
+    /*Position*/
     this.column = 0;
-    this.row=0;
+    this.row = 0;
   }
 
   paint(){
@@ -10,9 +13,10 @@ class Magic{
 
     context.save();
 
-    context.fillStyle = 'yellow';
-    context.fillRect(this.column * GRID_SIZE,this.row * GRID_SIZE,100,context.canvas.height);
-    
+    this.game.context.fillStyle = 'red';
+    this.game.context.fillRect(300, 300, 50, 50);
+
     context.restore();
   }
+
 }
