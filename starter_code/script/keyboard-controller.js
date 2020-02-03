@@ -8,11 +8,13 @@ class KeyboardController {
       // Stop the default behavior (moving the screen to the left/up/right/down)
       event.preventDefault();
       const code = event.keyCode;
+
       const controls = {
         //-DIVA CONTROLER ------:
         32: 'space',
         37: 'left',
-        39: 'right'
+        39: 'right',
+        49: 'spell01'
       };
 
       if (Object.keys(controls).includes(code.toString())) {
@@ -25,8 +27,10 @@ class KeyboardController {
           case 'left':
           case 'right':
             this.game.diva.move(value);
-            console.log('moviment');
+            //console.log('moviment');
             break;
+          case 'spell01':
+            this.game.magic.attack(value);
         }
       }
 

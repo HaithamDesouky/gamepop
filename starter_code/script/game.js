@@ -7,12 +7,6 @@ class Game {
     this.keyboardController = new KeyboardController(this);
     this.keyboardController.setKeyBindings();
 
-    
-    this.diva = new Diva(this);
-    this.character = new Character(this);
-    this.magic = new Magic(this);
-
-    this.loop();
   }
 
   cleanCanvas() {
@@ -22,6 +16,7 @@ class Game {
 
   runLogic () {
     this.diva.runLogic();
+    this.magic.runLogic();
   }
 
   paint(){
@@ -33,14 +28,24 @@ class Game {
   }
 
   loop(){
-    this.paint();
+    
     this.runLogic();
+    this.paint();
 
     /*setTimeout(() => {
       this.loop();
     }, 200);*/
 
     window.requestAnimationFrame(timestamp => this.loop(timestamp));
+  }
+
+  start(){
+    this.diva = new Diva(this);
+    this.character = new Character(this);
+    this.magic = new Magic(this);
+
+    this.loop();
+
   }
 
   

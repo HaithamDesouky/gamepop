@@ -1,20 +1,8 @@
-const $canvas = document.querySelector('canvas');
-//const context = $canvas.getContext('2d');
+window.addEventListener('load', () => {
+  const $canvas = document.querySelector('canvas');
+  const $score = document.querySelector('#score-diva')
 
+  const game = new Game($canvas);
 
-/*
-console.dir(context);
-
-context.fillStyle = 'green';
-
-//context.fillRect(0,0,70,300);
-context.fillRect(0,0,700,500);
-*/
-
-
-
-
-
-
-
-const game = new Game($canvas);
+  game.start();
+});
