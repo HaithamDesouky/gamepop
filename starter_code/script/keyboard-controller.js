@@ -2,9 +2,6 @@ class KeyboardController {
   constructor(game) {
     this.game = game;
     this.controlAttack = 0;
-
-    
-    
   }
 
   setKeyBindings() {
@@ -19,7 +16,8 @@ class KeyboardController {
         32: 'space',
         37: 'left',
         39: 'right',
-        38: 'spell01'
+        38: 'spell01',
+        87: 'player2Spell1'
       };
 
       if (Object.keys(controls).includes(code.toString())) {
@@ -32,32 +30,38 @@ class KeyboardController {
           case 'left':
           case 'right':
             this.game.diva.move(value);
-            
+
             //console.log('moviment');
             break;
-          case 'spell01':
-            console.log(this.controlAttack);
-            console.log('GO GIRL '+ this.game.diva.position.y);
-
-           this.game.spellControl++;
-
-            if(!this.controlAttack){
-
-              //THE SAME POSITION AS DIVA
-              this.game.magic.position.y = this.game.diva.position.y;
-              this.game.magic.position.x = this.game.diva.position.x;
-
-              this.game.magic.attack(value);
-              this.controlAttack++;
-              console.log(this.controlAttack);
+          case 'player2Spell1':
+            this.game.magic = new Magic(this.game);
+            /*
+            let obj={
+              power: 10,
+              position: this.game.character.position,
+              direction: this.game.character.direction,
+              color: 'purple'
             }
-            
-            
-            
-          break;
+            this.game.magic = new Magic(this.game, {
+             ...obj
+            });
+            */
+            this.game.magic.position.y = this.game.character.position.y;
+            this.game.magic.position.x = this.game.character.position.x;
+            break;
+          case 'spell01':
+            console.log('GO GIRL ' + this.game.diva.position.y);
+
+            //THE SAME POSITION AS DIVA
+            this.game.magic = new Magic(this.game);
+
+            this.game.magic.position.y = this.game.diva.position.y;
+            this.game.magic.position.x = this.game.diva.position.x;
+
+            this.game.magic.attack(value);
+            break;
         }
       }
-
     });
   }
 }

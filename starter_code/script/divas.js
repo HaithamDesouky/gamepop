@@ -1,14 +1,16 @@
-
 class Diva {
-  constructor(game){
-    this.game=game;
+  constructor(game, power, position, color){
+    this.game = game;
+    thi
+     /***CHARACTERIS***/
+    this.character = character;
+    }
 
-     /*Position*/
+
     this.position = {
       x: 0,
       y: -8
     }
-
     /*Velocity*/
     this.velocity = {
       x: 0,
@@ -20,20 +22,19 @@ class Diva {
       y:0.5,
       x:3.5
     }
+
     
   }
 
   divaJump(){
     this.velocity.y = -0.2;
     //console.log('divaJump is working');
-
   }
 
   move(direction){
     const multiplierMap = {left: -1, right: 1};
     const multiplier = multiplierMap[direction];
     this.velocity.x = multiplier * 0.1;
-    
   }
   
  
@@ -42,18 +43,14 @@ class Diva {
     const velocity = this.velocity;
     const aceleration = this.aceleration;
     
-
     let newVelocity = {
       y: velocity.y + (aceleration.y / 1000 * 16),
       x: velocity.x / (1 + aceleration.x / 1000 * 16)
-      
     };
 
     //console.log('newVelocity.x ' + newVelocity.x);
 
     //debugger;
-
-       
 
     let newPosition = {
       y:position.y + newVelocity.y,
@@ -72,12 +69,7 @@ class Diva {
           this.position.x = newPosition.x;
         }
       }
-      
-    
   }
-
-  
-
 
   paint(){
     const context = this.game.context;
@@ -92,4 +84,3 @@ class Diva {
     context.restore();
   }
 }
-

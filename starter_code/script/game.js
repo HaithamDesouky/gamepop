@@ -1,6 +1,5 @@
-
 class Game {
-  constructor($canvas){
+  constructor($canvas) {
     this.$canvas = $canvas;
     this.context = this.$canvas.getContext('2d');
 
@@ -8,7 +7,6 @@ class Game {
     this.keyboardController.setKeyBindings();
 
     this.spellControl = false;
-
   }
 
   cleanCanvas() {
@@ -16,25 +14,25 @@ class Game {
     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
   }
 
-  runLogic () {
+  runLogic() {
     this.diva.runLogic();
-    this.magic.runLogic();
+    if (this.magic) {
+      this.magic.runLogic();
+    }
   }
 
-  paint(){
+  paint() {
     this.cleanCanvas();
 
     this.diva.paint();
     this.character.paint();
 
-    if(this.spellControl===1){
+    if (this.magic) {
       this.magic.paint();
     }
-    
   }
 
-  loop(){
-    
+  loop() {
     this.runLogic();
     this.paint();
 
@@ -45,15 +43,22 @@ class Game {
     window.requestAnimationFrame(timestamp => this.loop(timestamp));
   }
 
-  start(){
+  start() {
     this.diva = new Diva(this);
     this.character = new Character(this);
-    this.magic = new Magic(this);
-    
 
+    /*
+    this.firstPlayer = new Character(this, {
+      x: 50,
+      direction: 1,
+      color: 'green'
+    });
+    this.secondPlayer = new Character(this, {
+      x: 200,
+      direction: -1,
+      color: 'pink'
+    });
+    */
     this.loop();
-
   }
-
-  
 }

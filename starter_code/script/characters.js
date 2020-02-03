@@ -1,23 +1,22 @@
-class Character{
-  constructor(game){
-    this.game=game;
+class Character {
+  constructor(game) {
+    this.game = game;
 
-     /*Position*/
-     this.position = {
-      x: 0,
-      y: 0
-    }
+    /*Position*/
+    this.position = {
+      x: INICIAL_CX,
+      y: INICIAL_CY
+    };
   }
 
-  paint(){
+  paint() {
     const context = this.game.context;
 
     context.save();
 
     this.game.context.fillStyle = 'greenyellow';
-    this.game.context.fillRect((this.position.x + INICIAL_CX) * GRID_SIZE,(this.position.y + INICIAL_CY) * GRID_SIZE, 50, 50);
+    this.game.context.fillRect(this.position.x * GRID_SIZE, this.position.y * GRID_SIZE, 50, 50);
 
     context.restore();
   }
-
 }
