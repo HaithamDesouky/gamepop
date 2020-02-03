@@ -1,6 +1,10 @@
 class KeyboardController {
   constructor(game) {
     this.game = game;
+    this.controlAttack = 0;
+
+    
+    
   }
 
   setKeyBindings() {
@@ -8,13 +12,14 @@ class KeyboardController {
       // Stop the default behavior (moving the screen to the left/up/right/down)
       event.preventDefault();
       const code = event.keyCode;
+      //let teste = 0;
 
       const controls = {
         //-DIVA CONTROLER ------:
         32: 'space',
         37: 'left',
         39: 'right',
-        49: 'spell01'
+        38: 'spell01'
       };
 
       if (Object.keys(controls).includes(code.toString())) {
@@ -27,40 +32,32 @@ class KeyboardController {
           case 'left':
           case 'right':
             this.game.diva.move(value);
+            
             //console.log('moviment');
             break;
           case 'spell01':
-            this.game.magic.attack(value);
+            console.log(this.controlAttack);
+            console.log('GO GIRL '+ this.game.diva.position.y);
+
+           this.game.spellControl++;
+
+            if(!this.controlAttack){
+
+              //THE SAME POSITION AS DIVA
+              this.game.magic.position.y = this.game.diva.position.y;
+              this.game.magic.position.x = this.game.diva.position.x;
+
+              this.game.magic.attack(value);
+              this.controlAttack++;
+              console.log(this.controlAttack);
+            }
+            
+            
+            
+          break;
         }
       }
 
-      //console.log(event);
-
-      //KEY BEHAVIOR!!
-      /*switch (event.keyCode) {
-
-        //-DIVA CONTROLER ------:
-          case 37:
-            console.log('LEFT');
-            this.game.diva.position('left');
-            break;
-
-          case 39:
-            console.log('Right');
-            this.game.diva.position('right');
-            break;
-          
-          case 40:
-            console.log('down');
-            this.game.diva.position('down');
-            break;
-
-          case 32:
-            console.log('Jump');
-            this.game.diva.position('up');       
-            break;
-            
-      }*/
     });
   }
 }

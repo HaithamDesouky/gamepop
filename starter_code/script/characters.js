@@ -3,8 +3,10 @@ class Character{
     this.game=game;
 
      /*Position*/
-     this.column = 0;
-     this.row = 0;
+     this.position = {
+      x: 0,
+      y: 0
+    }
   }
 
   paint(){
@@ -13,7 +15,7 @@ class Character{
     context.save();
 
     this.game.context.fillStyle = 'greenyellow';
-    this.game.context.fillRect((this.row + INICIAL_CX) * GRID_SIZE,(this.column + INICIAL_CY) * GRID_SIZE, 50, 50);
+    this.game.context.fillRect((this.position.x + INICIAL_CX) * GRID_SIZE,(this.position.y + INICIAL_CY) * GRID_SIZE, 50, 50);
 
     context.restore();
   }

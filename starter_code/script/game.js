@@ -7,6 +7,8 @@ class Game {
     this.keyboardController = new KeyboardController(this);
     this.keyboardController.setKeyBindings();
 
+    this.spellControl = false;
+
   }
 
   cleanCanvas() {
@@ -24,7 +26,11 @@ class Game {
 
     this.diva.paint();
     this.character.paint();
-    this.magic.paint();
+
+    if(this.spellControl===1){
+      this.magic.paint();
+    }
+    
   }
 
   loop(){
@@ -43,6 +49,7 @@ class Game {
     this.diva = new Diva(this);
     this.character = new Character(this);
     this.magic = new Magic(this);
+    
 
     this.loop();
 
