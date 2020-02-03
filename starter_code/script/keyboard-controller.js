@@ -1,19 +1,39 @@
-class KeyboardController{
-  constructor(game){
-    this.game=game;
-
-    
+class KeyboardController {
+  constructor(game) {
+    this.game = game;
   }
 
-  setKeyBindings(){
+  setKeyBindings() {
     window.addEventListener('keydown', event => {
       // Stop the default behavior (moving the screen to the left/up/right/down)
       event.preventDefault();
+      const code = event.keyCode;
+      const controls = {
+        //-DIVA CONTROLER ------:
+        32: 'space',
+        37: 'left',
+        39: 'right'
+      };
+
+      if (Object.keys(controls).includes(code.toString())) {
+        const value = controls[code];
+        switch (value) {
+          case 'space':
+            this.game.diva.divaJump();
+            console.log('jump');
+            break;
+          case 'left':
+          case 'right':
+            this.game.diva.move(value);
+            console.log('moviment');
+            break;
+        }
+      }
 
       //console.log(event);
 
       //KEY BEHAVIOR!!
-      switch (event.keyCode) {
+      /*switch (event.keyCode) {
 
         //-DIVA CONTROLER ------:
           case 37:
@@ -36,10 +56,7 @@ class KeyboardController{
             this.game.diva.position('up');       
             break;
             
-      }
-
-          
+      }*/
     });
   }
-
 }
