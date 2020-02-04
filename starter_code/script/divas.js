@@ -59,6 +59,8 @@ class Diva {
       x:positionX + newVelocity.x
     };
 
+    //console.log(newPosition.y + this.startY)
+
     
    
     Object.assign(this.velocity, newVelocity);

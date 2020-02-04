@@ -2,9 +2,10 @@ class KeyboardController {
   constructor(game) {
     this.game = game;
     
+    //ARRAY CONTROLLER
     this.i = 0;
 
-    this.spell02 = false;
+    
   }
 
   setKeyBindings() {
@@ -12,21 +13,22 @@ class KeyboardController {
       // Stop the default behavior (moving the screen to the left/up/right/down)
       event.preventDefault();
       const code = event.keyCode;
-      //let teste = 0;
+      
 
       const controls = {
         //-DIVA CONTROLER ------:
-        32: 'jumpDiva',
-        37: 'left',
-        39: 'right',
-        38: 'spellDiva',
-        40: 'changeSpellDiva',
+        38: 'jumpDiva',   //space
+        37: 'left',       //arrowleft
+        39: 'right',      //arrowright
+        32: 'spellDiva',   //arrowup
+        40: 'changeSpellDiva', //arrowdown
 
         //-CHACARACTER CONTROLER ------:
-        83: 'jumpCharacter',
-        68: 'rightCharacter',
-        65: 'leftCharacter',
-        87: 'spellCharacter'
+        87: 'jumpCharacter',  //W
+        68: 'rightCharacter',  //D
+        65: 'leftCharacter',   //A
+        9: 'spellCharacter',   //Tab
+        83: 'changeSpellCharacter' //S
       };
 
       if (Object.keys(controls).includes(code.toString())) {
@@ -45,7 +47,7 @@ class KeyboardController {
             break;
 
           case 'spellDiva':
-          
+      
           /*SPELL 01 SELECT*/
           if(this.game.total.spell01[1] === true){
 
@@ -53,9 +55,7 @@ class KeyboardController {
               this.game.total.spell01[0]--;
               document.getElementById('spell01').innerText = this.game.total.spell01[0];
               //THE SAME POSITION AS DIVA
-              this.game.magic = new Magic(this.game, 10, 0,0,INICIAL_DX,INICIAL_DY, 0, 0, 'left','black');
-
-            
+              this.game.magic = new Magic(this.game, 5, 0,0,INICIAL_DX,INICIAL_DY, 0, 0, 'left','black');
 
               this.game.magic.positionY = this.game.diva.positionY;
               this.game.magic.positionX = this.game.diva.positionX;
@@ -161,8 +161,10 @@ class KeyboardController {
 
             
           break;
-
+/********************************************************************************************************************
+ * ********************************************************************************************************************/
           /*******Character**************/
+
           /*JUMP*/
           case 'jumpCharacter':
             this.game.character.jump();
@@ -176,14 +178,121 @@ class KeyboardController {
 
           /*ATTACK*/
           case 'spellCharacter':
+          
+          /*SPELL 04 SELECT*/
+          if(this.game.total.spell04[1] === true){
+
+            if(this.game.total.spell04[0] > 0 /*this.game.scoreDiva > 0*/){
+              this.game.total.spell04[0]--;
+              document.getElementById('spell04').innerText = this.game.total.spell04[0];
+              //THE SAME POSITION AS CHARACTER
+              this.game.magic04 = new Magic(this.game, 10, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','purple');
+
             
 
-            this.game.magicCharacter = new Magic(this.game, 3, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','purple');
+              this.game.magic04.positionY = this.game.character.positionY;
+              this.game.magic04.positionX = this.game.character.positionX;
 
-            this.game.magicCharacter.positionY = this.game.character.positionY;
-            this.game.magicCharacter.positionX = this.game.character.positionX;
+              this.game.magic04.attack();
 
-            this.game.magicCharacter.attack();
+              this.game.scoreController = 1;
+              
+            } else if(this.game.total.spell04[0] <= 0){
+              this.game.total.spell04[1] = false;
+              console.log('this.game.total.spell04[1] === true '+ this.game.total.spell04[1])
+            }
+
+          /*SPELL 05 SELECT*/ 
+          }else if(this.game.total.spell05[1] === true){
+            console.log('spell 05 select');
+
+
+            if(this.game.total.spell05[0] > 0 /*this.game.scorecharacter > 0*/){
+
+              this.game.total.spell05[0]--;
+              document.getElementById('spell05').innerText = this.game.total.spell05[0];
+              //THE SAME POSITION AS character
+              this.game.magic05 = new Magic(this.game, 5, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','yellow');
+
+            
+
+              this.game.magic05.positionY = this.game.character.positionY;
+              this.game.magic05.positionX = this.game.character.positionX;
+
+              this.game.magic05.attack();
+
+              this.game.scoreController = 1;
+              
+            } else if(this.game.total.spell05[0] <= 0){
+              this.game.total.spell05[1] = false;
+              console.log('this.game.total.spell05[1] === true '+ this.game.total.spell05[1])
+            }
+
+            /*SPELL 06 SELECT*/ 
+          }else if(this.game.total.spell06[1] === true){
+            console.log('spell 06 select');
+
+
+            if(this.game.total.spell06[0] > 0 /*this.game.scoreCharacter > 0*/){
+
+              this.game.total.spell06[0]--;
+
+              document.getElementById('spell06').innerText = this.game.total.spell06[0];
+
+              //CREATION MAGIC 06 - THE SAME POSITION AS character
+              this.game.magic06 = new Magic(this.game, 8, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','orange');
+
+              this.game.magic06.positionY = this.game.character.positionY;
+              this.game.magic06.positionX = this.game.character.positionX;
+
+              this.game.magic06.attack();
+
+              this.game.scoreController = 1;
+              
+            } else if(this.game.total.spell06[0] <= 0){
+              this.game.total.spell06[1] = false;
+              console.log('this.game.total.spell06[1] === true '+ this.game.total.spell06[1])
+            }
+            
+          }
+            
+          break;
+
+          case 'changeSpellCharacter':
+            
+            const arrayCharacter = ['macroSpell04','macroSpell05', 'macroSpell06'];
+
+            if(this.i === 0){
+              document.getElementById(arrayCharacter[arrayCharacter.length-1]).style.backgroundColor = 'white';
+              document.getElementById(arrayCharacter[this.i]).style.backgroundColor = 'pink';
+
+              this.game.total.spell04[1] = true;
+              this.game.total.spell05[1] = false;
+              this.game.total.spell06[1] = false;
+
+              this.i++;
+            }else if(this.i === 1){
+              document.getElementById(arrayCharacter[this.i]).style.backgroundColor = 'pink';
+
+              this.game.total.spell04[1] = false;
+              this.game.total.spell05[1] = true;
+              this.game.total.spell06[1] = false;
+
+              document.getElementById(arrayCharacter[this.i-1]).style.backgroundColor = 'white';
+              this.i++;
+              
+            }else if(this.i === 2){
+              document.getElementById(arrayCharacter[this.i]).style.backgroundColor = 'pink';
+
+              this.game.total.spell04[1] = false;
+              this.game.total.spell05[1] = false;
+              this.game.total.spell06[1] = true;
+
+              document.getElementById(arrayCharacter[this.i-1]).style.backgroundColor = 'white';
+              this.i=0;
+            }
+
+
           break;
 
 

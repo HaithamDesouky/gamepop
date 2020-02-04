@@ -14,7 +14,10 @@ class Game {
     this.total={
       spell01: [10,true],
       spell02: [5,false],
-      spell03: [5,false]
+      spell03: [5,false],
+      spell04: [5,true],
+      spell05: [5,false],
+      spell06: [5,false]
     }
 
   }
@@ -25,96 +28,69 @@ class Game {
   }
 
   checkCollision(){
+    /*Position Character*/
+    const characterX = (this.character.positionX + this.character.startX)*GRID_SIZE;
+    const characterY = (this.character.positionY + this.character.startY)*GRID_SIZE;
+
+    /*SPELL 01**************************************/
     if(this.magic){
-      
-      /* Magic Position */
-      const magicX = (this.magic.positionX + this.magic.startX)*GRID_SIZE;
-      const magicY = (this.magic.positionY + this.magic.startY)*GRID_SIZE;
+      if(this.total.spell01[1] === true){
+        /* Magic Position */
+        const magicX = (this.magic.positionX + this.magic.startX)*GRID_SIZE;
+        const magicY = (this.magic.positionY + this.magic.startY)*GRID_SIZE;
     
-      /*Position Character*/
-      const characterX = (this.character.positionX + this.character.startX)*GRID_SIZE;
-      const characterY = (this.character.positionY + this.character.startY)*GRID_SIZE;
-      
-     /* console.log('/------TEST UP -----/');
-      console.log('characterY ' + Math.round(characterY));
-      console.log('<')
-      console.log('magicY '+ ( Math.round(magicY) + 25));
 
+        /*CHECKCOLLISION*/
+        if(
+          /*UP*/
+          Math.round(characterY) <= Math.round(magicY) + 25 &&
+          Math.round(characterX) + 50 >= Math.round(magicX) &&
 
-      console.log('characterX '+ (Math.round(characterX) + 50));
-      console.log('>');
-      console.log('magicX '+ Math.round(magicX));
+          /*BOTTOM*/
+          Math.round(characterY) + 50 > Math.round(magicY) 
+          ){
+        
+          if(this.scoreController === 1){
+            if(this.magic || this.magic02 || this.magic03){
 
-      console.log('/--------------/');
-      console.log( 'characterY'+(Math.round(characterY) + 50 ));
-      console.log('<');
-      console.log('magicY '+ ( Math.round(magicY)));
-
-      
-      debugger;*/
-
-      /*CHECKCOLLISION*/
-      if(
-        /*UP*/
-        Math.round(characterY) <= Math.round(magicY) + 25 &&
-        Math.round(characterX) + 50 >= Math.round(magicX) &&
-
-        /*BOTTOM*/
-        Math.round(characterY) + 50 > Math.round(magicY) 
-        ){
-      
-        if(this.scoreController === 1){
-          if(this.magic || this.magic02 || this.magic03){
-
-            /*TOTAL CONTROLLER - Total number cant be negative*/ //SPELL 01//
-            if(this.total.spell01[0]>=0 && this.total.spell01[1] === true){
-            
-            /*LIFE */
-            this.scoreCharacter-= this.magic.power;
-            document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
-
-            }//this.total.spell01>=0 
-
-            /*CHECKCOLLISION SPELL 02*/
-            if(this.total.spell02[0]>=0 && this.total.spell02[1] === true){
-            
+              /*TOTAL CONTROLLER - Total number cant be negative*/ //SPELL 01//
+              if(this.total.spell01[0]>=0 && this.total.spell01[1] === true){
+              
               /*LIFE */
-              this.scoreCharacter-= this.magic02.power;
+              this.scoreCharacter-= this.magic.power;
               document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
-  
-            }//this.total.spell02>=0
 
+              }//this.total.spell01>=0 
 
-            /*CHECKCOLLISION SPELL 03*/
-            if(this.total.spell03[0]>=0 && this.total.spell03[1] === true){
-            
-              /*LIFE */
-              this.scoreCharacter-= this.magic03.power;
-              document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
+              /*CHECKCOLLISION SPELL 02*/
+              if(this.total.spell02[0]>=0 && this.total.spell02[1] === true){
+              
+                /*LIFE */
+                this.scoreCharacter-= this.magic02.power;
+                document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
     
-            }//this.total.spell03>=0 
-  
-            this.scoreController = 0;
+              }//this.total.spell02>=0
+
+
+              /*CHECKCOLLISION SPELL 03*/
+              if(this.total.spell03[0]>=0 && this.total.spell03[1] === true){
+              
+                /*LIFE */
+                this.scoreCharacter-= this.magic03.power;
+                document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
+      
+              }//this.total.spell03>=0 
+    
+              this.scoreController = 0;
+            }
           }//this.magic
           
         }
-       
-        
-        
-      
-    
-    
-        /*
-        const positionCharacter = this.game.character.position;
-        console.log(position.x);
-        console.log(positionCharacter.x);
-        console.log(position.y);
-        console.log(positionCharacter.y);*/
-    
         
       }//if(collision)
      
     }//if(this.magic)
+    
     
   }//CheckColision
 
@@ -134,6 +110,18 @@ class Game {
 
     if(this.magic03){
       this.magic03.runLogic();
+    }
+
+    if(this.magic04){
+      this.magic04.runLogic();
+    }
+
+    if(this.magic05){
+      this.magic05.runLogic();
+    }
+
+    if(this.magic06){
+      this.magic06.runLogic();
     }
 
     if(this.magicCharacter){
@@ -158,6 +146,18 @@ class Game {
 
     if(this.magic03){
       this.magic03.paint();
+    }
+
+    if(this.magic04){
+      this.magic04.paint();
+    }
+
+    if(this.magic05){
+      this.magic05.paint();
+    }
+
+    if(this.magic06){
+      this.magic06.paint();
     }
 
     if(this.magicCharacter) {
