@@ -1,16 +1,19 @@
 class Diva {
-  constructor(game, power, position, color){
+  constructor(game, power, positionX,positionY,startX,startY, color){
     this.game = game;
-    thi
-     /***CHARACTERIS***/
-    this.character = character;
-    }
 
+    this.power = power;
 
-    this.position = {
-      x: 0,
-      y: -8
-    }
+    this.positionX = positionX;
+    this.positionY = positionY;
+    this.startX = startX;
+    this.startY = startY;
+
+    
+
+    this.color = color;
+    
+
     /*Velocity*/
     this.velocity = {
       x: 0,
@@ -26,20 +29,22 @@ class Diva {
     
   }
 
-  divaJump(){
+  jump(){
     this.velocity.y = -0.2;
-    //console.log('divaJump is working');
+    
   }
 
   move(direction){
-    const multiplierMap = {left: -1, right: 1};
+    const multiplierMap = {left: -1, right: 1 , 'rightCharacter': 1, 'leftCharacter': -1};
     const multiplier = multiplierMap[direction];
     this.velocity.x = multiplier * 0.1;
   }
   
  
   runLogic(){
-    const position = this.position;
+    const positionY =this.positionY;
+    const positionX =this.positionX;
+
     const velocity = this.velocity;
     const aceleration = this.aceleration;
     
@@ -48,38 +53,43 @@ class Diva {
       x: velocity.x / (1 + aceleration.x / 1000 * 16)
     };
 
-    //console.log('newVelocity.x ' + newVelocity.x);
-
-    //debugger;
 
     let newPosition = {
-      y:position.y + newVelocity.y,
-      x:position.x + newVelocity.x
+      y:positionY + newVelocity.y,
+      x:positionX + newVelocity.x
     };
 
-    //console.log('newPosition.x ' + newPosition.x);
-
-    //debugger;
+    
    
     Object.assign(this.velocity, newVelocity);
-    if(newPosition.y > -8 && 
-      newPosition.y < 0 ){
-        this.position.y = newPosition.y;
-        if(newPosition.x + INICIAL_DX <= 13 && newPosition.x + INICIAL_DX >= 6){
-          this.position.x = newPosition.x;
-        }
+    if(this.startX >= 6){
+      if(newPosition.y > -8 && 
+        newPosition.y < 0 ){
+          this.positionY = newPosition.y;
+          if(newPosition.x + this.startX <= 13 && newPosition.x + this.startX > 8){
+            this.positionX = newPosition.x;
+          }
       }
+    }else {
+      if(newPosition.y > -8 && 
+        newPosition.y < 0 ){
+          this.positionY = newPosition.y;
+          if(newPosition.x + this.startX < 7 && newPosition.x + this.startX >= 2){
+            this.positionX = newPosition.x;
+          }
+      }
+    }
+
+      
   }
 
   paint(){
     const context = this.game.context;
 
-    const position = this.position;
-    
     context.save();
 
-    this.game.context.fillStyle = 'pink';
-    this.game.context.fillRect((position.x + INICIAL_DX) * GRID_SIZE,(position.y + INICIAL_DY) * GRID_SIZE, 50, 50);
+    this.game.context.fillStyle = this.color;
+    this.game.context.fillRect((this.positionX + this.startX) * GRID_SIZE,(this.positionY + this.startY) * GRID_SIZE, 50, 50);
 
     context.restore();
   }

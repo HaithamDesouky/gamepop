@@ -1,20 +1,23 @@
 class Magic {
-  constructor(game) {
+  constructor(game, power, positionX,positionY,startX,startY, velocityX, velocityY,attackDirection, color) {
     this.game = game;
+
+    this.power = power;
+
+    this.positionX = positionX;
+    this.positionY = positionY;
+
+    this.startX = startX;
+    this.startY = startY;
+
+    this.velocityX = velocityX;
+    this.velocityY = velocityY;
+
+    this.attackDirection = attackDirection;
+
+    this.color = color;
+
     this.acelerationControl = Math.random() * 0.3;
-    //let desaparecer = false;
-
-    /*Position*/
-    this.position = {
-      x: 0,
-      y: 0
-    };
-
-    /*Velocity*/
-    this.velocity = {
-      x: 0,
-      y: 0
-    };
 
     /*Acceleration*/
     this.aceleration = {
@@ -23,56 +26,47 @@ class Magic {
     };
   }
 
-  attack(direction) {
-    const multiplierMap = { spell01: -1,  };
-    const multiplier = multiplierMap[direction];
-    this.velocity.x = multiplier * 0.3;
-    this.velocity.y = multiplier * 0.3;
-  }
-
-  checkCollision() {
-    /* Magic Position */
-    const position = this.position;
-
-    /*position Character*/
-    const positionCharacter = this.game.character.position;
-    console.log(position.x);
-    console.log(positionCharacter.x);
-    console.log(position.y);
-    console.log(positionCharacter.y);
-
-    if (
-      this.position.x + 25 + INICIAL_DX < positionCharacter.x + 50 + INICIAL_CX &&
-      this.position.y + INICIAL_DY === positionCharacter.y + 50 + INICIAL_CY
-    ) {
-      console.log(position.x);
-      console.log('colision!!!!!!!!!!!');
-    } else {
-      console.log('not collision');
+  attack() {
+    
+    const direction = {
+      'left': -1,
+      'right': 1
     }
+    
+    const multiplier =  direction[this.attackDirection];
+    
+    this.velocityX = multiplier * 0.3;
+    this.velocityY = -1 * 0.3;
   }
 
+  
   runLogic() {
-    const position = this.position;
-    const velocity = this.velocity;
+    const positionX = this.positionX;
+    const positionY = this.positionY;
+    
+    const velocityX = this.velocityX;
+    const velocityY = this.velocityY;
+
     const aceleration = this.aceleration;
 
     let newVelocity = {
-      y: velocity.y + (aceleration.y / 1000) * 16,
-      x: velocity.x / (1 + (aceleration.x / 1000) * 16)
+      y: (velocityY + (aceleration.y / 1000) * 16),
+      x: velocityX / (1 + (aceleration.x / 1000) * 16)
     };
 
     let newPosition = {
-      y: position.y + newVelocity.y,
-      x: position.x + newVelocity.x
+      y: positionY + newVelocity.y,
+      x: positionX + newVelocity.x
     };
 
-    //console.log(newPosition.y);
+    
+    this.velocityX = newVelocity.x;
+    this.velocityY = newVelocity.y;
 
-    Object.assign(this.velocity, newVelocity);
-    Object.assign(this.position, newPosition);
+    this.positionX = newPosition.x;
+    this.positionY = newPosition.y;
 
-    //this.checkCollision();   <--------------------------------
+    
   }
 
   paint() {
@@ -80,10 +74,10 @@ class Magic {
 
     context.save();
 
-    this.game.context.fillStyle = 'black';
+    this.game.context.fillStyle = this.color;
     this.game.context.fillRect(
-      (this.position.x + INICIAL_DX) * GRID_SIZE,
-      (this.position.y + INICIAL_DY) * GRID_SIZE,
+      (this.positionX + this.startX) * GRID_SIZE,
+      (this.positionY + this.startY) * GRID_SIZE,
       25,
       25
     );

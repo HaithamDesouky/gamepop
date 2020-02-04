@@ -13,53 +13,71 @@ class KeyboardController {
 
       const controls = {
         //-DIVA CONTROLER ------:
-        32: 'space',
+        32: 'jumpDiva',
         37: 'left',
         39: 'right',
-        38: 'spell01',
-        87: 'player2Spell1'
+        38: 'spellDiva',
+
+        //-CHACARACTER CONTROLER ------:
+        83: 'jumpCharacter',
+        68: 'rightCharacter',
+        65: 'leftCharacter',
+        87: 'spellCharacter'
       };
 
       if (Object.keys(controls).includes(code.toString())) {
         const value = controls[code];
         switch (value) {
-          case 'space':
-            this.game.diva.divaJump();
-            console.log('jump');
+
+          /*******DIVA**************/
+          /*JUMP*/
+          case 'jumpDiva':
+            this.game.diva.jump();
             break;
+
           case 'left':
           case 'right':
             this.game.diva.move(value);
-
-            //console.log('moviment');
             break;
-          case 'player2Spell1':
-            this.game.magic = new Magic(this.game);
-            /*
-            let obj={
-              power: 10,
-              position: this.game.character.position,
-              direction: this.game.character.direction,
-              color: 'purple'
-            }
-            this.game.magic = new Magic(this.game, {
-             ...obj
-            });
-            */
-            this.game.magic.position.y = this.game.character.position.y;
-            this.game.magic.position.x = this.game.character.position.x;
-            break;
-          case 'spell01':
-            console.log('GO GIRL ' + this.game.diva.position.y);
 
+          case 'spellDiva':
+           
             //THE SAME POSITION AS DIVA
-            this.game.magic = new Magic(this.game);
+            this.game.magic = new Magic(this.game, 10, 0,0,INICIAL_DX,INICIAL_DY, 0, 0, 'left','black');
 
-            this.game.magic.position.y = this.game.diva.position.y;
-            this.game.magic.position.x = this.game.diva.position.x;
+           
 
-            this.game.magic.attack(value);
+            this.game.magic.positionY = this.game.diva.positionY;
+            this.game.magic.positionX = this.game.diva.positionX;
+
+            this.game.magic.attack();
             break;
+
+          /*******Character**************/
+          /*JUMP*/
+          case 'jumpCharacter':
+            this.game.character.jump();
+            break;
+
+          /*Moviment*/
+          case 'rightCharacter':
+          case 'leftCharacter':
+            this.game.character.move(value);
+          break;
+
+          /*ATTACK*/
+          case 'spellCharacter':
+            
+
+            this.game.magicCharacter = new Magic(this.game, 10, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','purple');
+
+            this.game.magicCharacter.positionY = this.game.character.positionY;
+            this.game.magicCharacter.positionX = this.game.character.positionX;
+
+            this.game.magicCharacter.attack();
+          break;
+
+
         }
       }
     });
