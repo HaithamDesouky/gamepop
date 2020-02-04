@@ -7,6 +7,7 @@ class Game {
     this.keyboardController.setKeyBindings();
 
     this.scoreController = 0;
+    this.scoreControllerCharacter = 0;
     this.scoreCharacter = 100;
 
     this.scoreDiva = 100;
@@ -31,6 +32,10 @@ class Game {
     /*Position Character*/
     const characterX = (this.character.positionX + this.character.startX)*GRID_SIZE;
     const characterY = (this.character.positionY + this.character.startY)*GRID_SIZE;
+
+    /*Position Diva*/
+    const divaX = (this.diva.positionX + this.diva.startX)*GRID_SIZE;
+    const divaY = (this.diva.positionY + this.diva.startY)*GRID_SIZE;
 
     /*SPELL 01**************************************/
     if(this.magic){
@@ -149,6 +154,230 @@ class Game {
       }//if(collision)
      
     }//if(this.magic03)
+
+
+    /*SPELL 04**************************************/
+    if(this.magic04){
+      if(this.total.spell04[1] === true){
+        /* Magic Position */
+        const magicX = (this.magic04.positionX + this.magic04.startX)*GRID_SIZE;
+        const magicY = (this.magic04.positionY + this.magic04.startY)*GRID_SIZE;
+        /*
+        console.log('-------------------')
+        console.log(magicY + 25);
+        console.log('=>');
+        console.log(divaY);
+        console.log(divaX+50);
+        console.log('>=')
+        console.log(magicX);
+        console.log(divaY +50)
+        console.log('>');
+        console.log(magicY);
+        console.log(magicX +25);
+        console.log('>=');
+        console.log(divaX);
+        debugger;*/
+
+        /*CHECKCOLLISION*/
+        if(
+          /*UP*/
+          Math.round(divaY) <= Math.round(magicY) + 25 &&
+          Math.round(divaX) + 50 >= Math.round(magicX) &&
+
+          /*BOTTOM*/
+          Math.round(divaY) + 50 > Math.round(magicY) &&
+          Math.round(magicX)+25 >= Math.round(divaX)
+          ){
+        
+          if(this.scoreControllerCharacter === 1){
+              
+              /*CHECKCOLLISION SPELL 04*/
+              if(this.total.spell04[0]>=0){
+                console.log('COLISIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIION')
+                /*LIFE */
+                this.scoreDiva-= this.magic04.power;
+                document.getElementById('score-diva').style.width = this.scoreDiva.toString() + '%';
+    
+              }//this.total.spell04>=0
+    
+              this.scoreControllerCharacter = 0;
+            }
+          
+          
+        }
+        
+      }//if(collision)
+     
+    }//if(this.magic04)
+
+    /*SPELL 05**************************************/
+    if(this.magic05){
+      if(this.total.spell05[1] === true){
+        /* Magic Position */
+        const magicX = (this.magic05.positionX + this.magic05.startX)*GRID_SIZE;
+        const magicY = (this.magic05.positionY + this.magic05.startY)*GRID_SIZE;
+        /*
+        console.log('-------------------')
+        console.log(magicY + 25);
+        console.log('=>');
+        console.log(divaY);
+        console.log(divaX+50);
+        console.log('>=')
+        console.log(magicX);
+        console.log(divaY +50)
+        console.log('>');
+        console.log(magicY);
+        console.log(magicX +25);
+        console.log('>=');
+        console.log(divaX);
+        debugger;*/
+
+        /*CHECKCOLLISION*/
+        if(
+          /*UP*/
+          Math.round(divaY) <= Math.round(magicY) + 25 &&
+          Math.round(divaX) + 50 >= Math.round(magicX) &&
+
+          /*BOTTOM*/
+          Math.round(divaY) + 50 > Math.round(magicY) &&
+          Math.round(magicX)+25 >= Math.round(divaX)
+          ){
+        
+          if(this.scoreControllerCharacter === 1){
+              
+              /*CHECKCOLLISION SPELL 05*/
+              if(this.total.spell05[0]>=0){
+                console.log('COLISIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIION')
+                /*LIFE */
+                this.scoreDiva-= this.magic05.power;
+                document.getElementById('score-diva').style.width = this.scoreDiva.toString() + '%';
+    
+              }//this.total.spell05>=0
+    
+              this.scoreControllerCharacter = 0;
+            }
+          
+          
+        }
+        
+      }//if(collision)
+     
+    }//if(this.magic05)
+
+
+    
+    /*SPELL 05**************************************/
+    if(this.magic05){
+      if(this.total.spell05[1] === true){
+        /* Magic Position */
+        const magicX = (this.magic05.positionX + this.magic05.startX)*GRID_SIZE;
+        const magicY = (this.magic05.positionY + this.magic05.startY)*GRID_SIZE;
+        /*
+        console.log('-------------------')
+        console.log(magicY + 25);
+        console.log('=>');
+        console.log(divaY);
+        console.log(divaX+50);
+        console.log('>=')
+        console.log(magicX);
+        console.log(divaY +50)
+        console.log('>');
+        console.log(magicY);
+        console.log(magicX +25);
+        console.log('>=');
+        console.log(divaX);
+        debugger;*/
+
+        /*CHECKCOLLISION*/
+        if(
+          /*UP*/
+          Math.round(divaY) <= Math.round(magicY) + 25 &&
+          Math.round(divaX) + 50 >= Math.round(magicX) &&
+
+          /*BOTTOM*/
+          Math.round(divaY) + 50 > Math.round(magicY) &&
+          Math.round(magicX)+25 >= Math.round(divaX)
+          ){
+        
+          if(this.scoreControllerCharacter === 1){
+              
+              /*CHECKCOLLISION SPELL 05*/
+              if(this.total.spell05[0]>=0){
+                console.log('COLISIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIION')
+                /*LIFE */
+                this.scoreDiva-= this.magic05.power;
+                document.getElementById('score-diva').style.width = this.scoreDiva.toString() + '%';
+    
+              }//this.total.spell05>=0
+    
+              this.scoreControllerCharacter = 0;
+            }
+          
+          
+        }
+        
+      }//if(collision)
+     
+    }//if(this.magic05)
+
+    /*SPELL 06**************************************/
+    if(this.magic06){
+      if(this.total.spell06[1] === true){
+        /* Magic Position */
+        const magicX = (this.magic06.positionX + this.magic06.startX)*GRID_SIZE;
+        const magicY = (this.magic06.positionY + this.magic06.startY)*GRID_SIZE;
+        /*
+        console.log('-------------------')
+        console.log(magicY + 25);
+        console.log('=>');
+        console.log(divaY);
+        console.log(divaX+50);
+        console.log('>=')
+        console.log(magicX);
+        console.log(divaY +50)
+        console.log('>');
+        console.log(magicY);
+        console.log(magicX +25);
+        console.log('>=');
+        console.log(divaX);
+        debugger;*/
+
+        /*CHECKCOLLISION*/
+        if(
+          /*UP*/
+          Math.round(divaY) <= Math.round(magicY) + 25 &&
+          Math.round(divaX) + 50 >= Math.round(magicX) &&
+
+          /*BOTTOM*/
+          Math.round(divaY) + 50 > Math.round(magicY) &&
+          Math.round(magicX)+25 >= Math.round(divaX)
+          ){
+        
+          if(this.scoreControllerCharacter === 1){
+              
+              /*CHECKCOLLISION SPELL 06*/
+              if(this.total.spell06[0]>=0){
+                console.log('COLISIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIION')
+                /*LIFE */
+                this.scoreDiva-= this.magic06.power;
+                document.getElementById('score-diva').style.width = this.scoreDiva.toString() + '%';
+    
+              }//this.total.spell06>=0
+    
+              this.scoreControllerCharacter = 0;
+            }
+          
+          
+        }
+        
+      }//if(collision)
+     
+    }//if(this.magic06)
+
+
+
+    
+
     
     
   }//CheckColision

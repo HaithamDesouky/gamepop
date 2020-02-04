@@ -39,6 +39,8 @@ class KeyboardController {
           /*JUMP*/
           case 'jumpDiva':
             this.game.diva.jump();
+            this.game.scoreDiva -= 2;
+            document.getElementById('score-diva').style.width = this.game.scoreDiva.toString() + '%';
             break;
 
           case 'left':
@@ -131,7 +133,7 @@ class KeyboardController {
 
             if(this.i=== 0){
               document.getElementById(arraySelect[arraySelect.length-1]).style.backgroundColor = 'white';
-              document.getElementById(arraySelect[this.i]).style.backgroundColor = 'pink';
+              document.getElementById(arraySelect[this.i]).style.backgroundColor = 'red';
 
               this.game.total.spell01[1] = true;
               this.game.total.spell02[1] = false;
@@ -139,7 +141,7 @@ class KeyboardController {
 
               this.i++;
             }else if(this.i === 1){
-              document.getElementById(arraySelect[this.i]).style.backgroundColor = 'pink';
+              document.getElementById(arraySelect[this.i]).style.backgroundColor = 'red';
 
               this.game.total.spell01[1] = false;
               this.game.total.spell02[1] = true;
@@ -149,7 +151,7 @@ class KeyboardController {
               this.i++;
               
             }else if(this.i === 2){
-              document.getElementById(arraySelect[this.i]).style.backgroundColor = 'pink';
+              document.getElementById(arraySelect[this.i]).style.backgroundColor = 'red';
 
               this.game.total.spell01[1] = false;
               this.game.total.spell02[1] = false;
@@ -168,6 +170,10 @@ class KeyboardController {
           /*JUMP*/
           case 'jumpCharacter':
             this.game.character.jump();
+
+            this.game.scoreCharacter -= 2;
+            document.getElementById('score-character').style.width = this.game.scoreCharacter.toString() + '%';
+            
             break;
 
           /*Moviment*/
@@ -186,7 +192,7 @@ class KeyboardController {
               this.game.total.spell04[0]--;
               document.getElementById('spell04').innerText = this.game.total.spell04[0];
               //THE SAME POSITION AS CHARACTER
-              this.game.magic04 = new Magic(this.game, 10, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','purple');
+              this.game.magic04 = new Magic(this.game, 5, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','purple');
 
             
 
@@ -195,7 +201,7 @@ class KeyboardController {
 
               this.game.magic04.attack();
 
-              this.game.scoreController = 1;
+              this.game.scoreControllerCharacter = 1;
               
             } else if(this.game.total.spell04[0] <= 0){
               this.game.total.spell04[1] = false;
@@ -212,7 +218,7 @@ class KeyboardController {
               this.game.total.spell05[0]--;
               document.getElementById('spell05').innerText = this.game.total.spell05[0];
               //THE SAME POSITION AS character
-              this.game.magic05 = new Magic(this.game, 5, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','yellow');
+              this.game.magic05 = new Magic(this.game, 20, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','yellow');
 
             
 
@@ -221,7 +227,7 @@ class KeyboardController {
 
               this.game.magic05.attack();
 
-              this.game.scoreController = 1;
+              this.game.scoreControllerCharacter = 1;
               
             } else if(this.game.total.spell05[0] <= 0){
               this.game.total.spell05[1] = false;
@@ -247,7 +253,7 @@ class KeyboardController {
 
               this.game.magic06.attack();
 
-              this.game.scoreController = 1;
+              this.game.scoreControllerCharacter = 1;
               
             } else if(this.game.total.spell06[0] <= 0){
               this.game.total.spell06[1] = false;
