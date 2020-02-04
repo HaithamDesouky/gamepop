@@ -51,6 +51,9 @@ class KeyboardController {
             this.game.magic.positionX = this.game.diva.positionX;
 
             this.game.magic.attack();
+
+            this.game.scoreController = 1;
+            
             break;
 
           /*******Character**************/

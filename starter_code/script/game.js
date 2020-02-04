@@ -6,7 +6,9 @@ class Game {
     this.keyboardController = new KeyboardController(this);
     this.keyboardController.setKeyBindings();
 
-    this.spellControl = false;
+    this.scoreController = 0;
+    this.scoreCharacter = 100;
+    
 
 
   }
@@ -18,7 +20,7 @@ class Game {
 
   checkCollision(){
     if(this.magic){
-     
+      
       /* Magic Position */
       const magicX = (this.magic.positionX + this.magic.startX)*GRID_SIZE;
       const magicY = (this.magic.positionY + this.magic.startY)*GRID_SIZE;
@@ -27,7 +29,7 @@ class Game {
       const characterX = (this.character.positionX + this.character.startX)*GRID_SIZE;
       const characterY = (this.character.positionY + this.character.startY)*GRID_SIZE;
       
-      /*console.log('/------TEST UP -----/');
+     /* console.log('/------TEST UP -----/');
       console.log('characterY ' + Math.round(characterY));
       console.log('<')
       console.log('magicY '+ ( Math.round(magicY) + 25));
@@ -35,20 +37,35 @@ class Game {
 
       console.log('characterX '+ (Math.round(characterX) + 50));
       console.log('>');
-      console.log('magicX '+ Math.round(magicX));*/
+      console.log('magicX '+ Math.round(magicX));
+
+      console.log('/--------------/');
+      console.log( 'characterY'+(Math.round(characterY) + 50 ));
+      console.log('<');
+      console.log('magicY '+ ( Math.round(magicY)));
 
       
-      //debugger;
+      debugger;*/
 
       /*CHECKCOLLISION*/
       if(
         /*UP*/
         Math.round(characterY) <= Math.round(magicY) + 25 &&
-        Math.round(characterX) + 50 >= (Math.round(magicX))  //okkk
+        Math.round(characterX) + 50 >= Math.round(magicX) &&
+
+        /*BOTTOM*/
+        Math.round(characterY) + 50 > Math.round(magicY) 
         ){
-          const $scoreCharacter = document.querySelector('#score-character');
-          console.log($score);
-      }  
+      
+        if(this.scoreController === 1){
+          this.scoreCharacter--;
+          console.log(this.scoreCharacter);
+          this.scoreController = 0;
+        }
+       
+        
+        
+      
     
     
         /*
@@ -59,11 +76,11 @@ class Game {
         console.log(positionCharacter.y);*/
     
         
-      
+      }//if(collision)
      
-    }
+    }//if(this.magic)
     
-  }
+  }//CheckColision
 
 
   runLogic() {
