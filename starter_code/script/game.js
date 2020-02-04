@@ -8,8 +8,14 @@ class Game {
 
     this.scoreController = 0;
     this.scoreCharacter = 100;
-    
 
+    this.scoreDiva = 100;
+    
+    this.total={
+      spell01: [10,true],
+      spell02: [5,false],
+      spell03: [5,false]
+    }
 
   }
 
@@ -58,9 +64,39 @@ class Game {
         ){
       
         if(this.scoreController === 1){
-          this.scoreCharacter--;
-          console.log(this.scoreCharacter);
-          this.scoreController = 0;
+          if(this.magic || this.magic02 || this.magic03){
+
+            /*TOTAL CONTROLLER - Total number cant be negative*/ //SPELL 01//
+            if(this.total.spell01[0]>=0 && this.total.spell01[1] === true){
+            
+            /*LIFE */
+            this.scoreCharacter-= this.magic.power;
+            document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
+
+            }//this.total.spell01>=0 
+
+            /*CHECKCOLLISION SPELL 02*/
+            if(this.total.spell02[0]>=0 && this.total.spell02[1] === true){
+            
+              /*LIFE */
+              this.scoreCharacter-= this.magic02.power;
+              document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
+  
+            }//this.total.spell02>=0
+
+
+            /*CHECKCOLLISION SPELL 03*/
+            if(this.total.spell03[0]>=0 && this.total.spell03[1] === true){
+            
+              /*LIFE */
+              this.scoreCharacter-= this.magic03.power;
+              document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
+    
+            }//this.total.spell03>=0 
+  
+            this.scoreController = 0;
+          }//this.magic
+          
         }
        
         
@@ -92,6 +128,14 @@ class Game {
       this.magic.runLogic();
     }
 
+    if (this.magic02) {
+      this.magic02.runLogic();
+    }
+
+    if(this.magic03){
+      this.magic03.runLogic();
+    }
+
     if(this.magicCharacter){
       this.magicCharacter.runLogic();
     }
@@ -106,6 +150,14 @@ class Game {
 
     if (this.magic) {
       this.magic.paint();
+    }
+
+    if(this.magic02){
+      this.magic02.paint();
+    }
+
+    if(this.magic03){
+      this.magic03.paint();
     }
 
     if(this.magicCharacter) {

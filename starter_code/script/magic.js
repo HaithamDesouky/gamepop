@@ -27,7 +27,7 @@ class Magic {
   }
 
   attack() {
-    
+    console.log('attack active');
     const direction = {
       'left': -1,
       'right': 1
