@@ -7,6 +7,8 @@ class Game {
     this.keyboardController.setKeyBindings();
 
     this.spellControl = false;
+
+
   }
 
   cleanCanvas() {
@@ -14,28 +16,52 @@ class Game {
     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
   }
 
-  checkCollision() {
-    /* Magic Position */
-    /*const magicX = this.magic.positionX;
-    const magicY = this.magic.positionY;*/
-
-    /*Position Character*/
-    const characterX = this.character.positionX;
-    const characterY = this.character.positionY;
-
+  checkCollision(){
+    if(this.magic){
+     
+      /* Magic Position */
+      const magicX = (this.magic.positionX + this.magic.startX)*GRID_SIZE;
+      const magicY = (this.magic.positionY + this.magic.startY)*GRID_SIZE;
     
-    if(this.character.positionX<0){
-      console.log('checkcollison is working');
+      /*Position Character*/
+      const characterX = (this.character.positionX + this.character.startX)*GRID_SIZE;
+      const characterY = (this.character.positionY + this.character.startY)*GRID_SIZE;
+      
+      /*console.log('/------TEST UP -----/');
+      console.log('characterY ' + Math.round(characterY));
+      console.log('<')
+      console.log('magicY '+ ( Math.round(magicY) + 25));
+
+
+      console.log('characterX '+ (Math.round(characterX) + 50));
+      console.log('>');
+      console.log('magicX '+ Math.round(magicX));*/
+
+      
+      //debugger;
+
+      /*CHECKCOLLISION*/
+      if(
+        /*UP*/
+        Math.round(characterY) <= Math.round(magicY) + 25 &&
+        Math.round(characterX) + 50 >= (Math.round(magicX))  //okkk
+        ){
+          const $scoreCharacter = document.querySelector('#score-character');
+          console.log($score);
+      }  
+    
+    
+        /*
+        const positionCharacter = this.game.character.position;
+        console.log(position.x);
+        console.log(positionCharacter.x);
+        console.log(position.y);
+        console.log(positionCharacter.y);*/
+    
+        
+      
+     
     }
-
-
-    /*
-    const positionCharacter = this.game.character.position;
-    console.log(position.x);
-    console.log(positionCharacter.x);
-    console.log(position.y);
-    console.log(positionCharacter.y);*/
-
     
   }
 
@@ -58,6 +84,7 @@ class Game {
     this.cleanCanvas();
 
     this.diva.paint();
+
     this.character.paint();
 
     if (this.magic) {
@@ -73,7 +100,6 @@ class Game {
     this.runLogic();
     this.paint();
     this.checkCollision();
-
 
     window.requestAnimationFrame(timestamp => this.loop(timestamp));
   }

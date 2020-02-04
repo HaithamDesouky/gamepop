@@ -39,6 +39,8 @@ class Magic {
     this.velocityY = -1 * 0.3;
   }
 
+ 
+
   
   runLogic() {
     const positionX = this.positionX;

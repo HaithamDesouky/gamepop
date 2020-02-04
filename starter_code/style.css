@@ -36,3 +36,17 @@ body button {
     float: left;
     padding: 20px 0px;
 }
+
+.score{
+  width: 200px;
+  height: 25px;
+  border:1px solid black;
+  align-items: center;
+}
+
+.scoreCharacter{
+  background-color: green;
+  height: 100%;
+}
+
+

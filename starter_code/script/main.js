@@ -1,6 +1,10 @@
 window.addEventListener('load', () => {
   const $canvas = document.querySelector('canvas');
-  const $score = document.querySelector('#score-diva')
+  
+
+  //document.querySelector('#score-character').style.width = '80%';
+
+
 
   const game = new Game($canvas);
 
