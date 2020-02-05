@@ -124,7 +124,7 @@ class Diva {
 
   runImageLoop(array, timestamp) {
     const numberOfImages = array.length;
-    console.log(array);
+    //console.log(array);
 
     if (this.timer < timestamp - this.speedOfAnimation) {
       this.timer = timestamp;

@@ -72,7 +72,7 @@ class Game {
         /* Magic Position */
         const magicX = (this.magic.positionX + this.magic.startX)*GRID_SIZE;
         const magicY = (this.magic.positionY + this.magic.startY)*GRID_SIZE;
-        
+        /*
         console.log('-------------------')
         console.log(magicX + 25);
         console.log('=>');
@@ -89,7 +89,7 @@ class Game {
         console.log(characterY + 70);
         console.log('<');
         console.log(magicY +25);
-        debugger;
+        debugger;*/
 
         /*CHECKCOLLISION*/
         if(
@@ -143,13 +143,17 @@ class Game {
 
         /*CHECKCOLLISION*/
         if(
-          /*UP*/
-          Math.round(characterY) <= Math.round(magicY) + 25 &&
-          Math.round(characterX) + 5 >= Math.round(magicX) &&
+           /*RIGHT*/
+           Math.round(characterX) + 70 < Math.round(magicX) + 25 &&
 
-          /*BOTTOM*/
-          Math.round(characterY) + 5 > Math.round(magicY) &&
-          Math.round(magicX)+25 >= Math.round(characterX)
+           /*UP*/
+           Math.round(characterY) < Math.round(magicY) + 25 &&
+ 
+           /*LEFT*/
+           Math.round(characterX) < Math.round(magicX) + 25 &&
+ 
+           /*BOTTOM*/
+           Math.round(characterY) +70 < Math.round(magicY) + 25
           ){
         
           if(this.scoreController === 1){
@@ -185,13 +189,17 @@ class Game {
 
         /*CHECKCOLLISION*/
         if(
-          /*UP*/
-          Math.round(characterY) <= Math.round(magicY) + 25 &&
-          Math.round(characterX) + 5 >= Math.round(magicX) &&
+           /*RIGHT*/
+           Math.round(characterX) + 70 < Math.round(magicX) + 25 &&
 
-          /*BOTTOM*/
-          Math.round(characterY) + 5 > Math.round(magicY) &&
-          Math.round(magicX)+25 >= Math.round(characterX)
+           /*UP*/
+           Math.round(characterY) < Math.round(magicY) + 25 &&
+ 
+           /*LEFT*/
+           Math.round(characterX) < Math.round(magicX) + 25 &&
+ 
+           /*BOTTOM*/
+           Math.round(characterY) +70 < Math.round(magicY) + 25
           ){
         
           if(this.scoreController === 1){
@@ -242,13 +250,17 @@ class Game {
 
         /*CHECKCOLLISION*/
         if(
-          /*UP*/
-          Math.round(divaY) <= Math.round(magicY) + 25 &&
-          Math.round(divaX) + 5 >= Math.round(magicX) &&
+           /*RIGHT*/
+           Math.round(divaX) + 70 < Math.round(magicX) + 25 &&
 
-          /*BOTTOM*/
-          Math.round(divaY) + 5 > Math.round(magicY) &&
-          Math.round(magicX)+25 >= Math.round(divaX)
+           /*UP*/
+           Math.round(divaY) < Math.round(magicY) + 25 &&
+ 
+           /*LEFT*/
+           Math.round(divaX) < Math.round(magicX) + 25 &&
+ 
+           /*BOTTOM*/
+           Math.round(divaY) +70 < Math.round(magicY) + 25
           ){
         
           if(this.scoreControllerCharacter === 1){
@@ -298,13 +310,17 @@ class Game {
 
         /*CHECKCOLLISION*/
         if(
-          /*UP*/
-          Math.round(divaY) <= Math.round(magicY) + 25 &&
-          Math.round(divaX) + 5 >= Math.round(magicX) &&
+           /*RIGHT*/
+           Math.round(divaX) + 70 < Math.round(magicX) + 25 &&
 
-          /*BOTTOM*/
-          Math.round(divaY) + 5 > Math.round(magicY) &&
-          Math.round(magicX)+25 >= Math.round(divaX)
+           /*UP*/
+           Math.round(divaY) < Math.round(magicY) + 25 &&
+ 
+           /*LEFT*/
+           Math.round(divaX) < Math.round(magicX) + 25 &&
+ 
+           /*BOTTOM*/
+           Math.round(divaY) +70 < Math.round(magicY) + 25
           ){
         
           if(this.scoreControllerCharacter === 1){
@@ -356,13 +372,17 @@ class Game {
 
         /*CHECKCOLLISION*/
         if(
-          /*UP*/
-          Math.round(divaY) <= Math.round(magicY) + 25 &&
-          Math.round(divaX) + 5 >= Math.round(magicX) &&
+           /*RIGHT*/
+           Math.round(divaX) + 70 < Math.round(magicX) + 25 &&
 
-          /*BOTTOM*/
-          Math.round(divaY) + 5 > Math.round(magicY) &&
-          Math.round(magicX)+25 >= Math.round(divaX)
+           /*UP*/
+           Math.round(divaY) < Math.round(magicY) + 25 &&
+ 
+           /*LEFT*/
+           Math.round(divaX) < Math.round(magicX) + 25 &&
+ 
+           /*BOTTOM*/
+           Math.round(divaY) +70 < Math.round(magicY) + 25
           ){
         
           if(this.scoreControllerCharacter === 1){
@@ -392,37 +412,76 @@ class Game {
     if(this.magic06){
       if(this.total.spell06[1] === true){
         /* Magic Position */
-        const magicX = (this.magic06.positionX + this.magic06.startX)*GRID_SIZE;
-        const magicY = (this.magic06.positionY + this.magic06.startY)*GRID_SIZE;
-        /*
-        console.log('-------------------')
-        console.log(magicY + 25);
-        console.log('=>');
-        console.log(divaY);
-        console.log(divaX+5);
-        console.log('>=')
-        console.log(magicX);
-        console.log(divaY +5)
+        let obstacleX = (this.magic06.positionX + this.magic06.startX)*GRID_SIZE;
+        const obstacleHeight  = 25;
+        let obstacleY = (this.magic06.positionY + this.magic06.startY)*GRID_SIZE;
+        const obstacleWidth = 25;
+
+        const blockWidth = 40;
+        const blockHeight = 70;
+        
+       console.log('-------------------')
+        console.log(divaX + blockWidth);
         console.log('>');
-        console.log(magicY);
-        console.log(magicX +25);
-        console.log('>=');
+        console.log(obstacleX);
+
         console.log(divaX);
-        debugger;*/
+        console.log('<')
+        console.log(obstacleX + obstacleWidth);
+
+        console.log(divaY + blockHeight)
+        console.log('>');
+        console.log(obstacleY);
+
+        console.log(divaY);
+        console.log('<');
+        console.log(obstacleY + obstacleHeight);
+        debugger;
 
         /*CHECKCOLLISION*/
         if(
+          /*RIGHT*/
+         // Math.round(divaX) + 40 < Math.round(magicX) + 25 &&
+
           /*UP*/
-          Math.round(divaY) <= Math.round(magicY) + 25 &&
-          Math.round(divaX) + 5 >= Math.round(magicX) &&
+         // Math.round(divaY) < Math.round(magicY) + 25 &&
+
+          /*LEFT*/
+         // Math.round(divaX) < Math.round(magicX) + 25 &&
 
           /*BOTTOM*/
-          Math.round(divaY) + 5 > Math.round(magicY) &&
-          Math.round(magicX)+25 >= Math.round(divaX)
+         // Math.round(divaY) + 70 < Math.round(magicY)
+          /*
+         const blockX = block.positionX;
+         const blockY = block.positionY;
+         const blockWidth = block.dimensions;
+         const blockHeight = block.dimensions;
+         const obstacleX = this.positionX;
+         const obstacleY = this.positionY;
+         const obstacleWidth = this.width;
+         const obstacleHeight = this.height;
+         if (
+           blockX + blockWidth > obstacleX &&
+           blockX < obstacleX + obstacleWidth &&
+           blockY + blockHeight > obstacleY &&
+           blockY < obstacleY + obstacleHeight)*/
+
+           divaX + blockWidth > obstacleX &&
+           divaX < obstacleX + obstacleWidth &&
+           divaY + blockHeight > obstacleY &&
+           divaY < obstacleY + obstacleHeight
+
+
+          /*UP*/
+          /*Math.round(divaY) <= Math.round(magicY) + 25 &&
+          Math.round(divaX) + 50 >= Math.round(magicX) &&*/
+
+          /*BOTTOM*/
+          //Math.round(divaY) + 50 > Math.round(magicY) 
           ){
         
           if(this.scoreControllerCharacter === 1){
-              
+             console.log('COLISSIIIIIIiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiON');
               /*CHECKCOLLISION SPELL 06*/
               if(this.total.spell06[0]>=0){
                 
