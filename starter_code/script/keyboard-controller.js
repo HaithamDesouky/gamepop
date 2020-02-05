@@ -40,8 +40,8 @@ class KeyboardController {
           case 'jumpDiva':
             //position default:
             this.game.divaMoviment = 'jumpingCharacter';
-           
             this.game.diva.changeImage(this.game.divaMoviment,this.game.timestamp);
+            
 
             this.game.diva.jump();
 
@@ -49,13 +49,24 @@ class KeyboardController {
 
             this.game.scoreDiva -= 2;
             document.getElementById('score-diva').style.width = this.game.scoreDiva.toString() + '%';
+            document.getElementById('porcent-diva').innerHTML = this.game.scoreDiva.toString() + '%';
+
             break;
 
           case 'left':
-            this.game.characterMoviment = 'leftCharacter';
 
-            this.game.diva.changeImage(this.game.characterMoviment);
+            this.game.divaMoviment = 'leftCharacter';
+            this.game.diva.changeImage(this.game.divaMoviment,this.game.timestamp);
+
+            this.game.diva.move(value);
+          break;
+
+
           case 'right':
+
+            this.game.divaMoviment = 'rightCharacter';
+            this.game.diva.changeImage(this.game.divaMoviment,this.game.timestamp);
+
             this.game.diva.move(value);
             break;
 
@@ -184,35 +195,38 @@ class KeyboardController {
 
           /*JUMP*/
           case 'jumpCharacter':
-            this.game.character.jump();
 
-            this.game.characterMoviment = 'jumpingCharacterRight';
-            this.game.character.paint(this.game.characterMoviment);
-            
+            this.game.characterMoviment = 'jumpingCharacter';
+            this.game.character.changeImage( this.characterMoviment,this.game.timestamp);
+
+            this.game.character.jump();
 
             this.game.scoreCharacter -= 1;
             document.getElementById('score-character').style.width = this.game.scoreCharacter.toString() + '%';
+            document.getElementById('porcent-character').innerHTML = this.game.scoreCharacter.toString() + '%';
             
             break;
 
           /*Moviment*/
           case 'rightCharacter':
             this.game.character.move(value);
-            this.game.characterMoviment = 'runningCharacterRight';
-            this.game.character.paint(this.game.characterMoviment);
+
+            this.game.characterMoviment = 'rightCharacter';
+            this.game.character.changeImage(this.characterMoviment, this.game.timestamp);
           break;
 
           case 'leftCharacter':
             this.game.character.move(value);
-            this.game.characterMoviment = 'runningCharacterLeft';
+
+            this.game.characterMoviment = 'leftCharacter';
             this.game.character.paint( this.game.characterMoviment);
           break;
 
           /*ATTACK*/
           case 'spellCharacter':
 
-            this.game.characterMoviment = 'runThrowingRight';
-            this.game.character.paint(this.game.characterMoviment);
+            this.game.characterMoviment = 'attackCharacter';
+            this.game.character.changeImage(this.characterMoviment, this.game.timestamp);
           
           /*SPELL 04 SELECT*/
           if(this.game.total.spell04[1] === true){

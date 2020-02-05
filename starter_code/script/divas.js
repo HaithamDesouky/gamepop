@@ -70,21 +70,26 @@ class Diva {
           }
       }*/
 
-      if (newPosition.x + this.startX <= 18 && newPosition.x + this.startX > 8) {
-        this.positionX = newPosition.x;
+        if (newPosition.x + this.startX <= 17 && newPosition.x + this.startX > 4) {
+          this.positionX = newPosition.x;
+        }
+
         if (newPosition.y > -8 && newPosition.y < 0) {
           this.positionY = newPosition.y;
         }
-      }
+      
     } else {
-      if (newPosition.x + this.startX < 7 && newPosition.x + this.startX >= 2) {
-        this.positionX = newPosition.x;
-        if (newPosition.y > -8 && newPosition.y < 0) {
+
+        if (newPosition.x + this.startX < 10 && newPosition.x + this.startX >= -1 ) {
+          this.positionX = newPosition.x;
+        }
+
+        if (newPosition.y > -8 && newPosition.y <= 0) {
           this.positionY = newPosition.y;
         }
-      }
-    }
-  }
+      
+    }//this.startX >= 6
+  }//runLogic();
 
   changeImage(value, timestamp) {
 
@@ -95,13 +100,23 @@ class Diva {
         break;
 
       case 'jumpingCharacter':
-        this.speedOfAnimation = 20;
+        this.speedOfAnimation = 40;
         this.runImageLoop(this.image.jumpingCharacter, timestamp);
       break;
 
       case 'attackCharacter':
         this.speedOfAnimation = 20;
         this.runImageLoop(this.image.attackCharacter, timestamp);
+      break;
+
+      case 'leftCharacter':
+        this.speedOfAnimation = 20;
+        this.runImageLoop(this.image.leftCharacter, timestamp);
+      break;
+
+      case 'rightCharacter':
+        this.speedOfAnimation = 20;
+        this.runImageLoop(this.image.rightCharacter, timestamp);
       break;
 
     }

@@ -18,7 +18,27 @@ characterImages = {
   '../images/Character/IdleBlinking/16.png',
   '../images/Character/IdleBlinking/17.png'],
 
-  characterRunning: ['../images/Character/Running/00.png',
+  jumpingCharacter:['../images/Character/JumpStart/00.png',
+  '../images/Character/JumpStart/01.png',
+  '../images/Character/JumpStart/02.png',
+  '../images/Character/JumpStart/03.png',
+  '../images/Character/JumpStart/04.png',
+  '../images/Character/JumpStart/05.png'],
+
+  attackCharacter:['../images/Character/ThrowingInTheAir/00.png',
+  '../images/Character/ThrowingInTheAir/01.png',
+  '../images/Character/ThrowingInTheAir/02.png',
+  '../images/Character/ThrowingInTheAir/03.png',
+  '../images/Character/ThrowingInTheAir/04.png',
+  '../images/Character/ThrowingInTheAir/05.png',
+  '../images/Character/ThrowingInTheAir/06.png',
+  '../images/Character/ThrowingInTheAir/07.png',
+  '../images/Character/ThrowingInTheAir/08.png',
+  '../images/Character/ThrowingInTheAir/09.png',
+  '../images/Character/ThrowingInTheAir/10.png',
+  '../images/Character/ThrowingInTheAir/11.png'],
+
+  leftCharacter:['../images/Character/Running/00.png',
   '../images/Character/Running/01.png',
   '../images/Character/Running/02.png',
   '../images/Character/Running/03.png',
@@ -30,6 +50,19 @@ characterImages = {
   '../images/Character/Running/09.png',
   '../images/Character/Running/10.png',
   '../images/Character/Running/11.png'],
+
+  rightCharacter:['../images/Character/RunningLeft/00.png',
+  '../images/Character/RunningLeft/01.png',
+  '../images/Character/RunningLeft/02.png',
+  '../images/Character/RunningLeft/03.png',
+  '../images/Character/RunningLeft/04.png',
+  '../images/Character/RunningLeft/05.png',
+  '../images/Character/RunningLeft/06.png',
+  '../images/Character/RunningLeft/07.png',
+  '../images/Character/RunningLeft/08.png',
+  '../images/Character/RunningLeft/09.png',
+  '../images/Character/RunningLeft/10.png',
+  '../images/Character/RunningLeft/11.png']
 
 
 }
@@ -73,6 +106,32 @@ divaImages = {
   '../images/Orc/ThrowingInTheAir/08.png',
   '../images/Orc/ThrowingInTheAir/09.png',
   '../images/Orc/ThrowingInTheAir/10.png',
-  '../images/Orc/ThrowingInTheAir/11.png']
+  '../images/Orc/ThrowingInTheAir/11.png'],
+
+  leftCharacter:['../images/Orc/Running/00.png',
+  '../images/Orc/Running/01.png',
+  '../images/Orc/Running/02.png',
+  '../images/Orc/Running/03.png',
+  '../images/Orc/Running/04.png',
+  '../images/Orc/Running/05.png',
+  '../images/Orc/Running/06.png',
+  '../images/Orc/Running/07.png',
+  '../images/Orc/Running/08.png',
+  '../images/Orc/Running/09.png',
+  '../images/Orc/Running/10.png',
+  '../images/Orc/Running/11.png'],
+
+  rightCharacter:['../images/Orc/RunningRight/00.png',
+  '../images/Orc/RunningRight/01.png',
+  '../images/Orc/RunningRight/02.png',
+  '../images/Orc/RunningRight/03.png',
+  '../images/Orc/RunningRight/04.png',
+  '../images/Orc/RunningRight/05.png',
+  '../images/Orc/RunningRight/06.png',
+  '../images/Orc/RunningRight/07.png',
+  '../images/Orc/RunningRight/08.png',
+  '../images/Orc/RunningRight/09.png',
+  '../images/Orc/RunningRight/10.png',
+  '../images/Orc/RunningRight/11.png']
 }
 

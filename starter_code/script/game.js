@@ -72,17 +72,42 @@ class Game {
         /* Magic Position */
         const magicX = (this.magic.positionX + this.magic.startX)*GRID_SIZE;
         const magicY = (this.magic.positionY + this.magic.startY)*GRID_SIZE;
-    
+        
+        console.log('-------------------')
+        console.log(magicX + 25);
+        console.log('=>');
+        console.log(characterX +70);
+
+        console.log(characterY);
+        console.log('<')
+        console.log(magicY +25);
+
+        console.log(characterX)
+        console.log('<');
+        console.log(magicX +25);
+
+        console.log(characterY + 70);
+        console.log('<');
+        console.log(magicY +25);
+        debugger;
 
         /*CHECKCOLLISION*/
         if(
+          /*RIGHT*/
+          Math.round(characterX) + 70 < Math.round(magicX) + 25 &&
+
           /*UP*/
-          Math.round(characterY) <= Math.round(magicY) + 25 &&
-          Math.round(characterX) + 50 >= Math.round(magicX) &&
+          Math.round(characterY) < Math.round(magicY) + 25 &&
+
+          /*LEFT*/
+          Math.round(characterX) < Math.round(magicX) + 25 &&
 
           /*BOTTOM*/
-          Math.round(characterY) + 50 > Math.round(magicY) 
+          Math.round(characterY) +70 < Math.round(magicY) + 25
+          
           ){
+
+            //console.log('COLLISIONNNNNNNNNNNNNNNNNNNNNNNNN')
         
           if(this.scoreController === 1){
             if(this.magic || this.magic02 || this.magic03){
@@ -94,6 +119,7 @@ class Game {
               this.scoreCharacter-= this.magic.power;
 
               document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
+              document.getElementById('porcent-character').innerHTML = this.scoreCharacter.toString() + '%';
 
               }//this.total.spell01>=0 
 
@@ -119,10 +145,11 @@ class Game {
         if(
           /*UP*/
           Math.round(characterY) <= Math.round(magicY) + 25 &&
-          Math.round(characterX) + 50 >= Math.round(magicX) &&
+          Math.round(characterX) + 5 >= Math.round(magicX) &&
 
           /*BOTTOM*/
-          Math.round(characterY) + 50 > Math.round(magicY) 
+          Math.round(characterY) + 5 > Math.round(magicY) &&
+          Math.round(magicX)+25 >= Math.round(characterX)
           ){
         
           if(this.scoreController === 1){
@@ -134,7 +161,8 @@ class Game {
                 this.scoreCharacter-= this.magic02.power;
 
                 document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
-    
+                document.getElementById('porcent-character').innerHTML = this.scoreCharacter.toString() + '%';
+
               }//this.total.spell02>=0
     
               this.scoreController = 0;
@@ -159,10 +187,11 @@ class Game {
         if(
           /*UP*/
           Math.round(characterY) <= Math.round(magicY) + 25 &&
-          Math.round(characterX) + 50 >= Math.round(magicX) &&
+          Math.round(characterX) + 5 >= Math.round(magicX) &&
 
           /*BOTTOM*/
-          Math.round(characterY) + 50 > Math.round(magicY) 
+          Math.round(characterY) + 5 > Math.round(magicY) &&
+          Math.round(magicX)+25 >= Math.round(characterX)
           ){
         
           if(this.scoreController === 1){
@@ -174,6 +203,7 @@ class Game {
                 this.scoreCharacter-= this.magic03.power;
 
                 document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
+                document.getElementById('porcent-character').innerHTML = this.scoreCharacter.toString() + '%';
     
               }//this.total.spell03>=0
     
@@ -199,10 +229,10 @@ class Game {
         console.log(magicY + 25);
         console.log('=>');
         console.log(divaY);
-        console.log(divaX+50);
+        console.log(divaX+5);
         console.log('>=')
         console.log(magicX);
-        console.log(divaY +50)
+        console.log(divaY +5)
         console.log('>');
         console.log(magicY);
         console.log(magicX +25);
@@ -214,10 +244,10 @@ class Game {
         if(
           /*UP*/
           Math.round(divaY) <= Math.round(magicY) + 25 &&
-          Math.round(divaX) + 50 >= Math.round(magicX) &&
+          Math.round(divaX) + 5 >= Math.round(magicX) &&
 
           /*BOTTOM*/
-          Math.round(divaY) + 50 > Math.round(magicY) &&
+          Math.round(divaY) + 5 > Math.round(magicY) &&
           Math.round(magicX)+25 >= Math.round(divaX)
           ){
         
@@ -230,7 +260,8 @@ class Game {
                 this.scoreDiva-= this.magic04.power;
 
                 document.getElementById('score-diva').style.width = this.scoreDiva.toString() + '%';
-    
+                document.getElementById('porcent-diva').innerHTML = this.scoreDiva.toString() + '%';
+
               }//this.total.spell04>=0
     
               this.scoreControllerCharacter = 0;
@@ -254,10 +285,10 @@ class Game {
         console.log(magicY + 25);
         console.log('=>');
         console.log(divaY);
-        console.log(divaX+50);
+        console.log(divaX+5);
         console.log('>=')
         console.log(magicX);
-        console.log(divaY +50)
+        console.log(divaY +5)
         console.log('>');
         console.log(magicY);
         console.log(magicX +25);
@@ -269,10 +300,10 @@ class Game {
         if(
           /*UP*/
           Math.round(divaY) <= Math.round(magicY) + 25 &&
-          Math.round(divaX) + 50 >= Math.round(magicX) &&
+          Math.round(divaX) + 5 >= Math.round(magicX) &&
 
           /*BOTTOM*/
-          Math.round(divaY) + 50 > Math.round(magicY) &&
+          Math.round(divaY) + 5 > Math.round(magicY) &&
           Math.round(magicX)+25 >= Math.round(divaX)
           ){
         
@@ -285,6 +316,7 @@ class Game {
                 this.scoreDiva-= this.magic05.power;
           
                 document.getElementById('score-diva').style.width = this.scoreDiva.toString() + '%';
+                document.getElementById('porcent-diva').innerHTML = this.scoreDiva.toString() + '%';
     
               }//this.total.spell05>=0
     
@@ -311,10 +343,10 @@ class Game {
         console.log(magicY + 25);
         console.log('=>');
         console.log(divaY);
-        console.log(divaX+50);
+        console.log(divaX+5);
         console.log('>=')
         console.log(magicX);
-        console.log(divaY +50)
+        console.log(divaY +5)
         console.log('>');
         console.log(magicY);
         console.log(magicX +25);
@@ -326,10 +358,10 @@ class Game {
         if(
           /*UP*/
           Math.round(divaY) <= Math.round(magicY) + 25 &&
-          Math.round(divaX) + 50 >= Math.round(magicX) &&
+          Math.round(divaX) + 5 >= Math.round(magicX) &&
 
           /*BOTTOM*/
-          Math.round(divaY) + 50 > Math.round(magicY) &&
+          Math.round(divaY) + 5 > Math.round(magicY) &&
           Math.round(magicX)+25 >= Math.round(divaX)
           ){
         
@@ -342,6 +374,7 @@ class Game {
                 this.scoreDiva-= this.magic05.power;
           
                 document.getElementById('score-diva').style.width = this.scoreDiva.toString() + '%';
+                document.getElementById('porcent-diva').innerHTML = this.scoreDiva.toString() + '%';
     
               }//this.total.spell05>=0
     
@@ -366,10 +399,10 @@ class Game {
         console.log(magicY + 25);
         console.log('=>');
         console.log(divaY);
-        console.log(divaX+50);
+        console.log(divaX+5);
         console.log('>=')
         console.log(magicX);
-        console.log(divaY +50)
+        console.log(divaY +5)
         console.log('>');
         console.log(magicY);
         console.log(magicX +25);
@@ -381,10 +414,10 @@ class Game {
         if(
           /*UP*/
           Math.round(divaY) <= Math.round(magicY) + 25 &&
-          Math.round(divaX) + 50 >= Math.round(magicX) &&
+          Math.round(divaX) + 5 >= Math.round(magicX) &&
 
           /*BOTTOM*/
-          Math.round(divaY) + 50 > Math.round(magicY) &&
+          Math.round(divaY) + 5 > Math.round(magicY) &&
           Math.round(magicX)+25 >= Math.round(divaX)
           ){
         
@@ -397,6 +430,7 @@ class Game {
                 this.scoreDiva-= this.magic06.power;
           
                 document.getElementById('score-diva').style.width = this.scoreDiva.toString() + '%';
+                document.getElementById('porcent-diva').innerHTML = this.scoreDiva.toString() + '%';
     
               }//this.total.spell06>=0
     
@@ -525,6 +559,16 @@ class Game {
   reset() {
     this.diva = new Diva(this, 10, 0,-8,INICIAL_DX,INICIAL_DY,'pink', divaImages);
     this.character = new Diva(this,10, 0,-8,INICIAL_CX,INICIAL_CY, 'green', characterImages);
+
+    this.scoreCharacter = 100;
+    this.scoreDiva = 100;
+
+    document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
+    document.getElementById('porcent-diva').innerHTML = this.scoreDiva.toString() + '%';
+
+
+    document.getElementById('porcent-character').innerHTML = this.scoreCharacter.toString() + '%';
+    document.getElementById('porcent-diva').innerHTML = this.scoreCharacter.toString() + '%';
 
     if (!this.isRunning) {
       this.isRunning = true;
