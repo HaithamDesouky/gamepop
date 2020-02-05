@@ -16,10 +16,26 @@ characterImages = {
   '../images/Character/IdleBlinking/14.png',
   '../images/Character/IdleBlinking/15.png',
   '../images/Character/IdleBlinking/16.png',
-  '../images/Character/IdleBlinking/17.png']
+  '../images/Character/IdleBlinking/17.png'],
+
+  characterRunning: ['../images/Character/Running/00.png',
+  '../images/Character/Running/01.png',
+  '../images/Character/Running/02.png',
+  '../images/Character/Running/03.png',
+  '../images/Character/Running/04.png',
+  '../images/Character/Running/05.png',
+  '../images/Character/Running/06.png',
+  '../images/Character/Running/07.png',
+  '../images/Character/Running/08.png',
+  '../images/Character/Running/09.png',
+  '../images/Character/Running/10.png',
+  '../images/Character/Running/11.png'],
+
+
 }
 
 divaImages = {
+
   characterIdle:['../images/Orc/IdleBlinking/00.png',
   '../images/Orc/IdleBlinking/01.png',
   '../images/Orc/IdleBlinking/02.png',
@@ -37,6 +53,26 @@ divaImages = {
   '../images/Orc/IdleBlinking/14.png',
   '../images/Orc/IdleBlinking/15.png',
   '../images/Orc/IdleBlinking/16.png',
-  '../images/Orc/IdleBlinking/17.png']
+  '../images/Orc/IdleBlinking/17.png'],
+
+  jumpingCharacter:['../images/Orc/JumpStart/00.png',
+  '../images/Orc/JumpStart/01.png',
+  '../images/Orc/JumpStart/02.png',
+  '../images/Orc/JumpStart/03.png',
+  '../images/Orc/JumpStart/04.png',
+  '../images/Orc/JumpStart/05.png'],
+
+  attackCharacter:['../images/Orc/ThrowingInTheAir/00.png',
+  '../images/Orc/ThrowingInTheAir/01.png',
+  '../images/Orc/ThrowingInTheAir/02.png',
+  '../images/Orc/ThrowingInTheAir/03.png',
+  '../images/Orc/ThrowingInTheAir/04.png',
+  '../images/Orc/ThrowingInTheAir/05.png',
+  '../images/Orc/ThrowingInTheAir/06.png',
+  '../images/Orc/ThrowingInTheAir/07.png',
+  '../images/Orc/ThrowingInTheAir/08.png',
+  '../images/Orc/ThrowingInTheAir/09.png',
+  '../images/Orc/ThrowingInTheAir/10.png',
+  '../images/Orc/ThrowingInTheAir/11.png']
 }
 

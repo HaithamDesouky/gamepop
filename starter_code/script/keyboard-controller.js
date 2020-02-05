@@ -38,17 +38,32 @@ class KeyboardController {
           /*******DIVA**************/
           /*JUMP*/
           case 'jumpDiva':
+            //position default:
+            this.game.divaMoviment = 'jumpingCharacter';
+           
+            this.game.diva.changeImage(this.game.divaMoviment,this.game.timestamp);
+
             this.game.diva.jump();
+
+            
+
             this.game.scoreDiva -= 2;
             document.getElementById('score-diva').style.width = this.game.scoreDiva.toString() + '%';
             break;
 
           case 'left':
+            this.game.characterMoviment = 'leftCharacter';
+
+            this.game.diva.changeImage(this.game.characterMoviment);
           case 'right':
             this.game.diva.move(value);
             break;
 
           case 'spellDiva':
+
+            this.game.divaMoviment = 'attackCharacter';
+           
+            this.game.diva.changeImage(this.game.divaMoviment,this.game.timestamp);
       
           /*SPELL 01 SELECT*/
           if(this.game.total.spell01[1] === true){

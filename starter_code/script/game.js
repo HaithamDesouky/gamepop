@@ -25,7 +25,8 @@ class Game {
 
     this.setControlBindings();
 
-    this.characterMoviment = 'characterIdle'
+    this.characterMoviment = 'characterIdle';
+    this.divaMoviment = 'characterIdle';
 
   }
 
@@ -467,8 +468,10 @@ class Game {
   paint(timestamp) {
     this.cleanCanvas();
 
-    this.diva.changeImage(this.characterMoviment,timestamp);
+    //position default:
+    this.diva.changeImage(this.divaMoviment,timestamp);
 
+    //position default:
     this.character.changeImage(this.characterMoviment,timestamp);
     
 

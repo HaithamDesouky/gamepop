@@ -22,6 +22,8 @@ class Diva {
       y: 0.5,
       x: 3.5
     };
+
+    /*Animation*/
     this.image = image;
     this.timer = 0;
     this.imageCounter = 0;
@@ -85,20 +87,33 @@ class Diva {
   }
 
   changeImage(value, timestamp) {
+
     switch (value) {
       case 'characterIdle':
-        this.speedOfAnimation = 20
+        this.speedOfAnimation = 20;
         this.runImageLoop(this.image.characterIdle, timestamp);
-        //this.game.animation.idleBlinkingCharacter();
         break;
+
+      case 'jumpingCharacter':
+        this.speedOfAnimation = 20;
+        this.runImageLoop(this.image.jumpingCharacter, timestamp);
+      break;
+
+      case 'attackCharacter':
+        this.speedOfAnimation = 20;
+        this.runImageLoop(this.image.attackCharacter, timestamp);
+      break;
+
     }
   }
 
   runImageLoop(array, timestamp) {
     const numberOfImages = array.length;
+    console.log(array);
+
     if (this.timer < timestamp - this.speedOfAnimation) {
       this.timer = timestamp;
-      if (this.imageCounter < numberOfImages - 1) {
+      if (this.imageCounter <= numberOfImages - 1) {
         this.imageCounter++;
       } else {
         this.imageCounter = 0;
@@ -114,8 +129,8 @@ class Diva {
       this.imageCar,
       (this.positionX + this.startX) * GRID_SIZE,
       (this.positionY + this.startY) * GRID_SIZE,
-      160,
-      160
+      180,
+      180
     );
     /*context.save();
     
