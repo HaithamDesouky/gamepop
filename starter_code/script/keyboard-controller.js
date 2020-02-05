@@ -171,19 +171,33 @@ class KeyboardController {
           case 'jumpCharacter':
             this.game.character.jump();
 
-            this.game.scoreCharacter -= 2;
+            this.game.characterMoviment = 'jumpingCharacterRight';
+            this.game.character.paint(this.game.characterMoviment);
+            
+
+            this.game.scoreCharacter -= 1;
             document.getElementById('score-character').style.width = this.game.scoreCharacter.toString() + '%';
             
             break;
 
           /*Moviment*/
           case 'rightCharacter':
+            this.game.character.move(value);
+            this.game.characterMoviment = 'runningCharacterRight';
+            this.game.character.paint(this.game.characterMoviment);
+          break;
+
           case 'leftCharacter':
             this.game.character.move(value);
+            this.game.characterMoviment = 'runningCharacterLeft';
+            this.game.character.paint( this.game.characterMoviment);
           break;
 
           /*ATTACK*/
           case 'spellCharacter':
+
+            this.game.characterMoviment = 'runThrowingRight';
+            this.game.character.paint(this.game.characterMoviment);
           
           /*SPELL 04 SELECT*/
           if(this.game.total.spell04[1] === true){
