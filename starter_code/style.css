@@ -53,13 +53,13 @@ body button {
 }
 
 .instructions img{
-  width: 7em;
+  width: 10em;
   height: auto;
 }
 
 .movimentInstructions{
-  display: inline-flex;
-  border: 1px solid white;
+  height: 5em;
+  width: 5em;
 }
 
 canvas{
