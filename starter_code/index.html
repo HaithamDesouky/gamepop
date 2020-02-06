@@ -3,65 +3,160 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Game Pop</title>
+    <title>Forest Game</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <!--Bootstrap style-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+    <!--Google Fonts-->
+    <!-- font-family: 'Luckiest Guy', cursive; -->
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+
   </head>
   <body>
 
-    <div class="score">
-      <div class="scoreCharacter" id="score-character" style="width:100%">
-      </div>
-    </div>
+    <section class="container-fluid">
+      <div class="row ">
 
-    <h3 id="porcent-character"></h3>
+        <div class="col-4 instructions">
+          <img src="./images/GameItens/title.png">
+         
+          <button id="btn-start">Start</button>
+          <button id="btn-reset">Reset</button>
+          <button id="btn-pause">Pause</button>
+          
 
-    <div class="score">
-      <div class="scoreDiva" id="score-diva" style="width:100%">
-      </div>
-    </div>
+        </div>
 
-    <h3 id="porcent-diva"></h3>
+        <div class="col-1 d-flex justify-content-center">
+           <!--SPELLS-->
+           <div class="row">
+            <div class="col spell"  id="macroSpell04">
+
+              <div>
+                <img class="spellsImages" src="./images/Character/Spell/potion.png">
+                <h2 id="spell04">5</h2>
+              </div>
+            </div>
+
+            <div class="col spell" id="macroSpell05">
+
+              <div>
+                  <img class="spellsImages" src="./images/Character/Spell/potion2.png">
+                  <h2 id="spell05">5</h2> 
+              </div>
+              
+            </div>
+
+            <div class="col spell" id="macroSpell06">
+              <div >
+                <img class="spellsImages" src="./images/Character/Spell/potion3.png">
+                <h2 id="spell06">5</h2>
+              </div>
+            </div>
+          </div>
+       <!--/SPELLS-->
+
+        </div>
+
+        <!--CANVAS COLUMN-->
+        <div class="col-6">
+
+          <!--score-->
+          <div class="d-flex justify-content-center align-items-center">
+            <div class="row ">
+              <!--Score Row-->
+              <div class="col-6  d-flex">
+  
+                <div class="score">
+                  <div class="scoreCharacter" id="score-character" style="width:100%">
+                  </div>
+                </div>
+  
+                <h4 id="porcent-character">100%</h4>
+  
+              </div>
+  
+              <div class="col-6 d-flex justify-content-center">
+  
+                <div class="score">
+                  <div class="scoreDiva" id="score-diva" style="width:100%">
+                  </div>
+                </div>
+            
+                <h4 id="porcent-diva">100%</h4>
+  
+              </div>
+  
+            </div><!--/Score Row-->
+
+          </div>
+
+          <canvas width="1000" height="600"></canvas>
+        </div><!--/CANVAS COLUMN-->
+
+        <div class="col-1 d-flex justify-content-center">
+          <!--SPELLS--> 
+          <div class="row">
+
+            <div class="col spell" id="macroSpell01">
+
+              <div>
+                <img class="spellsImages" src="./images/Orc/Spell/skull2.png">
+                <h2 id="spell01">10</h2>
+              </div>
+            </div>
+
+            <div class="col spell" id="macroSpell02">
+
+              <div >
+                <img class="spellsImages" src="./images/Orc/Spell/skull1.png">
+                <h2 id="spell02">5</h2>
+              </div>
+              
+            </div>
+
+            <div class="col spell" id="macroSpell03">
+              <div >
+                <img class="spellsImages" src="./images/Orc/Spell/skull2.png">
+                <h2 id="spell03">5</h2>
+              </div>
+            </div>
+          </div><!--/SPELLS-->
+          
+
+
+        </div>
+      </div> <!--/row-->
+
+    </section>
+
+    
+
+    
+
+    
 
     <div>
-      <canvas width="1000" height="600" style="background-color: blue;"></canvas>
-      <aside>
-       <button id="btn-start">Start</button>
-        <button id="btn-reset">Reset</button>
-        <button id="btn-pause">Pause</button>
-      </aside>
+      
+      
     </div>
     
 
-    <div id="macroSpell01" style="background-color: pink;">
-      <div id="spell01">
-        10
-      </div>
-    </div>
+    
 
-    <div id="macroSpell02">
-      <div id="spell02">
-        5
-      </div>
-    </div>
+    
 
-    <div id="macroSpell03">
-      <div id="spell03">
-        5
-      </div>
-    </div>
+    
 
 
-    <div id="macroSpell04" style="background-color: orange;">
-      <div id="spell04">
-        5
-      </div>
-    </div>
+    
 
-    <div id="macroSpell05">
-      <div id="spell05">
-        5
-      </div>
-    </div>
+    
 
     <div id="macroSpell06">
       <div id="spell06">
@@ -89,13 +184,13 @@
 
     <script src="script/magic.js"></script>
 
-    <script src="script/animation.js"></script>
-
     <script src="script/divas.js"></script>
 
     <script src="script/game.js"></script>
     
     <script src="script/main.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     
   </body>
 </html>

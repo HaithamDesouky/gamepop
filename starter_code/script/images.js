@@ -1,3 +1,4 @@
+
 characterImages = {
   characterIdle:['../images/Character/IdleBlinking/00.png',
   '../images/Character/IdleBlinking/01.png',
@@ -16,7 +17,8 @@ characterImages = {
   '../images/Character/IdleBlinking/14.png',
   '../images/Character/IdleBlinking/15.png',
   '../images/Character/IdleBlinking/16.png',
-  '../images/Character/IdleBlinking/17.png'],
+'../images/Character/IdleBlinking/17.png',
+'../images/Character/IdleBlinking/00.png'],
 
   jumpingCharacter:['../images/Character/JumpStart/00.png',
   '../images/Character/JumpStart/01.png',
@@ -62,7 +64,20 @@ characterImages = {
   '../images/Character/RunningLeft/08.png',
   '../images/Character/RunningLeft/09.png',
   '../images/Character/RunningLeft/10.png',
-  '../images/Character/RunningLeft/11.png']
+  '../images/Character/RunningLeft/11.png'],
+
+  hurtCharacter:['../images/Character/Hurt/00.png',
+  '../images/Character/Hurt/01.png',
+  '../images/Character/Hurt/02.png',
+  '../images/Character/Hurt/03.png',
+  '../images/Character/Hurt/04.png',
+  '../images/Character/Hurt/05.png',
+  '../images/Character/Hurt/06.png',
+  '../images/Character/Hurt/07.png',
+  '../images/Character/Hurt/08.png',
+  '../images/Character/Hurt/09.png',
+  '../images/Character/Hurt/10.png',
+  '../images/Character/Hurt/11.png']
 
 
 }
@@ -86,7 +101,8 @@ divaImages = {
   '../images/Orc/IdleBlinking/14.png',
   '../images/Orc/IdleBlinking/15.png',
   '../images/Orc/IdleBlinking/16.png',
-  '../images/Orc/IdleBlinking/17.png'],
+  '../images/Orc/IdleBlinking/17.png',
+  '../images/Orc/IdleBlinking/00.png'],
 
   jumpingCharacter:['../images/Orc/JumpStart/00.png',
   '../images/Orc/JumpStart/01.png',
@@ -132,6 +148,20 @@ divaImages = {
   '../images/Orc/RunningRight/08.png',
   '../images/Orc/RunningRight/09.png',
   '../images/Orc/RunningRight/10.png',
-  '../images/Orc/RunningRight/11.png']
+  '../images/Orc/RunningRight/11.png'],
+
+
+  hurtCharacter:['../images/Orc/Hurt/00.png',
+  '../images/Orc/Hurt/01.png',
+  '../images/Orc/Hurt/02.png',
+  '../images/Orc/Hurt/03.png',
+  '../images/Orc/Hurt/04.png',
+  '../images/Orc/Hurt/05.png',
+  '../images/Orc/Hurt/06.png',
+  '../images/Orc/Hurt/07.png',
+  '../images/Orc/Hurt/08.png',
+  '../images/Orc/Hurt/09.png',
+  '../images/Orc/Hurt/10.png',
+  '../images/Orc/Hurt/11.png']
 }
 

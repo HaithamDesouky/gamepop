@@ -1,6 +1,14 @@
+*{
+  box-sizing: border-box;
+}
+
+
+
 body {
   padding: 0;
   text-align: center;
+  background-color: #542710;
+  
 }
 
 .game-intro {
@@ -37,6 +45,19 @@ body button {
     padding: 20px 0px;
 }
 
+/********INSTRUCTIONS*/
+
+.instructions {
+  background-color: #542710;
+}
+
+canvas{
+  background-image: url('./images/GameItens/forest.png');
+  background-size: cover;
+  border-radius: 5%;
+}
+
+
 .score{
   width: 200px;
   height: 25px;
@@ -55,5 +76,26 @@ body button {
   height: 100%;
 }
 
+
+/*********SPELLS******/
+
+.spell{
+  background-image: url('./images/GameItens/backgroundspell.jpg.png');
+  background-size: cover;
+  width: 10em;
+  height: auto;
+  text-align: center;
+  padding: 1em 1.5em;
+  color:white;
+  font-family: 'Luckiest Guy', cursive;
+}
+.spellsImages{
+  width:auto;
+  height:5em;
+}
+
+#macroSpell01, #macroSpell04{
+  background-color: rgba(0,0,0,0.98);
+}
 
 

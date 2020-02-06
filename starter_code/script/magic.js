@@ -1,5 +1,5 @@
 class Magic {
-  constructor(game, power, positionX,positionY,startX,startY, velocityX, velocityY,attackDirection, color) {
+  constructor(game, power, positionX,positionY,startX,startY, velocityX, velocityY,attackDirection, spell) {
     this.game = game;
 
     this.power = power;
@@ -15,7 +15,8 @@ class Magic {
 
     this.attackDirection = attackDirection;
 
-    this.color = color;
+    this.spell = spell;
+    this.imageSpell = new Image();
 
     this.acelerationControl = Math.random() * 0.3;
 
@@ -76,13 +77,36 @@ class Magic {
 
     context.save();
 
-    this.game.context.fillStyle = this.color;
-    this.game.context.fillRect(
-      (this.positionX + this.startX) * GRID_SIZE,
-      (this.positionY + this.startY) * GRID_SIZE,
-      25,
-      25
-    );
+    //this.game.context.fillStyle = this.color;
+    switch(this.spell){
+      case 'spell01':
+        this.imageSpell.src = '../images/Orc/Spell/skull.png';
+      break;
+      case 'spell02':
+        this.imageSpell.src = '../images/Orc/Spell/skull1.png';
+      break;
+      case 'spell03':
+        this.imageSpell.src = '../images/Orc/Spell/skull2.png';
+      break;
+      case 'spell04':
+        this.imageSpell.src = '../images/Character/Spell/potion.png';
+      break;
+      case 'spell05':
+        this.imageSpell.src = '../images/Character/Spell/potion2.png';
+      break;
+      case 'spell06':
+        this.imageSpell.src = '../images/Character/Spell/potion3.png';
+      break;
+    }
+
+    context.drawImage(
+        this.imageSpell,
+        (this.positionX + this.startX) * GRID_SIZE,
+        (this.positionY + this.startY) * GRID_SIZE,
+        50,
+        50
+      );
+
 
     context.restore();
   }

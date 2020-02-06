@@ -26,7 +26,8 @@ class Diva {
     /*Animation*/
     this.image = image;
     this.timer = 0;
-    this.imageCounter = 0;
+    this.imageCounterCharacter = 0;
+    this.imageCounterDiva = 0;
     this.speedOfAnimation = 20;
    
   }
@@ -91,60 +92,87 @@ class Diva {
     }//this.startX >= 6
   }//runLogic();
 
-  changeImage(value, timestamp) {
+  changeImage(value,character, timestamp) {
     
     //this.game.cleanCanvas();
 
     switch (value) {
       case 'characterIdle':
         this.speedOfAnimation = 20;
-        this.runImageLoop(this.image.characterIdle, timestamp);
+        this.runImageLoop(this.image.characterIdle,character, timestamp);
         break;
 
       case 'jumpingCharacter':
         this.speedOfAnimation = 40;
-        this.runImageLoop(this.image.jumpingCharacter, timestamp);
+        this.runImageLoop(this.image.jumpingCharacter,character, timestamp);
       break;
 
       case 'attackCharacter':
         this.speedOfAnimation = 20;
-        this.runImageLoop(this.image.attackCharacter, timestamp);
+        this.runImageLoop(this.image.attackCharacter,character, timestamp);
       break;
 
       case 'leftCharacter':
         this.speedOfAnimation = 20;
-        this.runImageLoop(this.image.leftCharacter, timestamp);
+        this.runImageLoop(this.image.leftCharacter,character, timestamp);
       break;
 
       case 'rightCharacter':
         this.speedOfAnimation = 20;
-        this.runImageLoop(this.image.rightCharacter, timestamp);
+        this.runImageLoop(this.image.rightCharacter,character, timestamp);
+      break;
+
+      case 'hurtCharacter':
+        this.speedOfAnimation = 25;
+        this.runImageLoop(this.image.rightCharacter,character, timestamp);
       break;
 
     }
   }
 
-  runImageLoop(array, timestamp) {
+  runImageLoop(array,character, timestamp) {
    
-    const numberOfImages = array.length;
+    if(character === 'diva'){
+      const numberOfImages = array.length;
+
+      if (this.timer < timestamp - this.speedOfAnimation) {
+        this.timer = timestamp;
+        if (this.imageCounterDiva >= numberOfImages-1) {
+          this.imageCounterDiva = 0;   
+        } else if(this.imageCounterDiva < numberOfImages - 1){
+          this.imageCounterDiva++;
+         // console.log(this.imageCounterDiva);
+          
+        }
+      }
+
+      this.paint(array[this.imageCounterDiva]);
+
+    }else if(character === 'character'){
+      const numberOfImages = array.length;
     //console.log(array);
 
     if (this.timer < timestamp - this.speedOfAnimation) {
       this.timer = timestamp;
-      if (this.imageCounter <= numberOfImages - 1) {
-        this.imageCounter++;
-      } else {
-        this.imageCounter = 0;
+      if (this.imageCounterCharacter >= numberOfImages-1) {
+        this.imageCounterCharacter= 0;   
+      } else if(this.imageCounterCharacter < numberOfImages - 1){
+        this.imageCounterCharacter++;
+        //console.log(this.imageCounterCharacter);
+        
       }
     }
-    this.paint(array[this.imageCounter]);
+    this.paint(array[this.imageCounterCharacter]);
+
+    }
+    
   }
 
   paint(imageSrc) {
     this.imageCar = new Image();
     const context = this.game.context;
     this.imageCar.src = imageSrc;
-    this.imageCar.addEventListener('load', ()=>{
+    
       context.drawImage(
         this.imageCar,
         (this.positionX + this.startX) * GRID_SIZE,
@@ -152,12 +180,11 @@ class Diva {
         180,
         180
       )
-    });
+    
     /*context.save();
     
     this.game.context.fillStyle = this.color;
     this.game.context.fillRect((this.positionX + this.startX) * GRID_SIZE,(this.positionY + this.startY) * GRID_SIZE, 50, 50);
-
     context.restore();*/
     /*
     const carUrl = '../images/Character/Running/00.png';

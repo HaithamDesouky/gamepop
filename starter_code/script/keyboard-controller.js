@@ -40,9 +40,9 @@ class KeyboardController {
           case 'jumpDiva':
             //position default:
             this.game.divaMoviment = 'jumpingCharacter';
-            this.game.diva.changeImage(this.game.divaMoviment,this.game.timestamp);
+            this.game.diva.changeImage(this.game.divaMoviment,'diva',this.game.timestamp);
             
-
+            
             this.game.diva.jump();
 
             
@@ -56,7 +56,7 @@ class KeyboardController {
           case 'left':
 
             this.game.divaMoviment = 'leftCharacter';
-            this.game.diva.changeImage(this.game.divaMoviment,this.game.timestamp);
+            this.game.diva.changeImage(this.game.divaMoviment,'diva',this.game.timestamp);
 
             this.game.diva.move(value);
           break;
@@ -65,7 +65,7 @@ class KeyboardController {
           case 'right':
 
             this.game.divaMoviment = 'rightCharacter';
-            this.game.diva.changeImage(this.game.divaMoviment,this.game.timestamp);
+            this.game.diva.changeImage(this.game.divaMoviment,'diva',this.game.timestamp);
 
             this.game.diva.move(value);
             break;
@@ -74,7 +74,7 @@ class KeyboardController {
 
             this.game.divaMoviment = 'attackCharacter';
            
-            this.game.diva.changeImage(this.game.divaMoviment,this.game.timestamp);
+            this.game.diva.changeImage(this.game.divaMoviment,'diva',this.game.timestamp);
       
           /*SPELL 01 SELECT*/
           if(this.game.total.spell01[1] === true){
@@ -83,7 +83,7 @@ class KeyboardController {
               this.game.total.spell01[0]--;
               document.getElementById('spell01').innerText = this.game.total.spell01[0];
               //THE SAME POSITION AS DIVA
-              this.game.magic = new Magic(this.game, 5, 0,0,INICIAL_DX,INICIAL_DY, 0, 0, 'left','black');
+              this.game.magic = new Magic(this.game, 5, 0,0,INICIAL_DX,INICIAL_DY, 0, 0, 'left','spell01');
 
               this.game.magic.positionY = this.game.diva.positionY;
               this.game.magic.positionX = this.game.diva.positionX;
@@ -107,7 +107,7 @@ class KeyboardController {
               this.game.total.spell02[0]--;
               document.getElementById('spell02').innerText = this.game.total.spell02[0];
               //THE SAME POSITION AS DIVA
-              this.game.magic02 = new Magic(this.game, 5, 0,0,INICIAL_DX,INICIAL_DY, 0, 0, 'left','yellow');
+              this.game.magic02 = new Magic(this.game, 5, 0,0,INICIAL_DX,INICIAL_DY, 0, 0, 'left','spell02');
 
             
 
@@ -135,7 +135,7 @@ class KeyboardController {
               document.getElementById('spell03').innerText = this.game.total.spell03[0];
 
               //CREATION MAGIC 03 - THE SAME POSITION AS DIVA
-              this.game.magic03 = new Magic(this.game, 8, 0,0,INICIAL_DX,INICIAL_DY, 0, 0, 'left','orange');
+              this.game.magic03 = new Magic(this.game, 8, 0,0,INICIAL_DX,INICIAL_DY, 0, 0, 'left','spell03');
 
               this.game.magic03.positionY = this.game.diva.positionY;
               this.game.magic03.positionX = this.game.diva.positionX;
@@ -158,8 +158,8 @@ class KeyboardController {
             const arraySelect = ['macroSpell01','macroSpell02', 'macroSpell03'];
 
             if(this.i=== 0){
-              document.getElementById(arraySelect[arraySelect.length-1]).style.backgroundColor = 'white';
-              document.getElementById(arraySelect[this.i]).style.backgroundColor = 'red';
+              document.getElementById(arraySelect[arraySelect.length-1]).style.backgroundColor = 'rgba(0,0,0,0)';
+              document.getElementById(arraySelect[this.i]).style.backgroundColor = 'rgba(0,0,0,0.98)';
 
               this.game.total.spell01[1] = true;
               this.game.total.spell02[1] = false;
@@ -167,23 +167,23 @@ class KeyboardController {
 
               this.i++;
             }else if(this.i === 1){
-              document.getElementById(arraySelect[this.i]).style.backgroundColor = 'red';
+              document.getElementById(arraySelect[this.i]).style.backgroundColor = 'rgba(0,0,0,0.98)';
 
               this.game.total.spell01[1] = false;
               this.game.total.spell02[1] = true;
               this.game.total.spell03[1] = false;
 
-              document.getElementById(arraySelect[this.i-1]).style.backgroundColor = 'white';
+              document.getElementById(arraySelect[this.i-1]).style.backgroundColor = 'rgba(0,0,0,0)';
               this.i++;
               
             }else if(this.i === 2){
-              document.getElementById(arraySelect[this.i]).style.backgroundColor = 'red';
+              document.getElementById(arraySelect[this.i]).style.backgroundColor = 'rgba(0,0,0,0.98)';
 
               this.game.total.spell01[1] = false;
               this.game.total.spell02[1] = false;
               this.game.total.spell03[1] = true;
 
-              document.getElementById(arraySelect[this.i-1]).style.backgroundColor = 'white';
+              document.getElementById(arraySelect[this.i-1]).style.backgroundColor = 'rgba(0,0,0,0)';
               this.i=0;
             }
 
@@ -197,13 +197,23 @@ class KeyboardController {
           case 'jumpCharacter':
 
             this.game.characterMoviment = 'jumpingCharacter';
-            this.game.character.changeImage( this.characterMoviment,this.game.timestamp);
+            this.game.character.changeImage(this.game.characterMoviment,'character',this.game.timestamp);
 
+            
             this.game.character.jump();
 
             this.game.scoreCharacter -= 1;
             document.getElementById('score-character').style.width = this.game.scoreCharacter.toString() + '%';
             document.getElementById('porcent-character').innerHTML = this.game.scoreCharacter.toString() + '%';
+
+            /*function image() {
+              this.game.characterMoviment = 'characterIdle';
+              this.game.character.changeImage(this.game.characterMoviment,'character',this.game.timestamp);
+            }
+            
+            
+            setTimeout(image, 2000);*/
+
             
             break;
 
@@ -212,21 +222,22 @@ class KeyboardController {
             this.game.character.move(value);
 
             this.game.characterMoviment = 'rightCharacter';
-            this.game.character.changeImage(this.characterMoviment, this.game.timestamp);
+            this.game.character.changeImage(this.game.characterMoviment,'character', this.game.timestamp);
           break;
 
           case 'leftCharacter':
             this.game.character.move(value);
 
             this.game.characterMoviment = 'leftCharacter';
-            this.game.character.paint( this.game.characterMoviment);
+            this.game.character.changeImage(this.game.characterMoviment,'character', this.game.timestamp);
+
           break;
 
           /*ATTACK*/
           case 'spellCharacter':
 
             this.game.characterMoviment = 'attackCharacter';
-            this.game.character.changeImage(this.characterMoviment, this.game.timestamp);
+            this.game.character.changeImage(this.game.characterMoviment,'character', this.game.timestamp);
           
           /*SPELL 04 SELECT*/
           if(this.game.total.spell04[1] === true){
@@ -235,7 +246,7 @@ class KeyboardController {
               this.game.total.spell04[0]--;
               document.getElementById('spell04').innerText = this.game.total.spell04[0];
               //THE SAME POSITION AS CHARACTER
-              this.game.magic04 = new Magic(this.game, 5, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','purple');
+              this.game.magic04 = new Magic(this.game, 5, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','spell04');
 
             
 
@@ -248,20 +259,19 @@ class KeyboardController {
               
             } else if(this.game.total.spell04[0] <= 0){
               this.game.total.spell04[1] = false;
-              console.log('this.game.total.spell04[1] === true '+ this.game.total.spell04[1])
+             
             }
 
           /*SPELL 05 SELECT*/ 
           }else if(this.game.total.spell05[1] === true){
-            console.log('spell 05 select');
-
+           
 
             if(this.game.total.spell05[0] > 0 /*this.game.scorecharacter > 0*/){
 
               this.game.total.spell05[0]--;
               document.getElementById('spell05').innerText = this.game.total.spell05[0];
               //THE SAME POSITION AS character
-              this.game.magic05 = new Magic(this.game, 20, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','yellow');
+              this.game.magic05 = new Magic(this.game, 20, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','spell05');
 
             
 
@@ -274,13 +284,12 @@ class KeyboardController {
               
             } else if(this.game.total.spell05[0] <= 0){
               this.game.total.spell05[1] = false;
-              console.log('this.game.total.spell05[1] === true '+ this.game.total.spell05[1])
+              
             }
 
             /*SPELL 06 SELECT*/ 
           }else if(this.game.total.spell06[1] === true){
-            console.log('spell 06 select');
-
+            
 
             if(this.game.total.spell06[0] > 0 /*this.game.scoreCharacter > 0*/){
 
@@ -289,7 +298,7 @@ class KeyboardController {
               document.getElementById('spell06').innerText = this.game.total.spell06[0];
 
               //CREATION MAGIC 06 - THE SAME POSITION AS character
-              this.game.magic06 = new Magic(this.game, 8, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','orange');
+              this.game.magic06 = new Magic(this.game, 8, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','spell06');
 
               this.game.magic06.positionY = this.game.character.positionY;
               this.game.magic06.positionX = this.game.character.positionX;
@@ -300,10 +309,11 @@ class KeyboardController {
               
             } else if(this.game.total.spell06[0] <= 0){
               this.game.total.spell06[1] = false;
-              console.log('this.game.total.spell06[1] === true '+ this.game.total.spell06[1])
+              
+
             }
             
-          }
+          }//this.game.total.spell06[1] === true
             
           break;
 
@@ -312,8 +322,8 @@ class KeyboardController {
             const arrayCharacter = ['macroSpell04','macroSpell05', 'macroSpell06'];
 
             if(this.i === 0){
-              document.getElementById(arrayCharacter[arrayCharacter.length-1]).style.backgroundColor = 'white';
-              document.getElementById(arrayCharacter[this.i]).style.backgroundColor = 'pink';
+              document.getElementById(arrayCharacter[arrayCharacter.length-1]).style.backgroundColor = 'rgba(0,0,0,0)';
+              document.getElementById(arrayCharacter[this.i]).style.backgroundColor = 'rgba(0,0,0,0.98)';
 
               this.game.total.spell04[1] = true;
               this.game.total.spell05[1] = false;
@@ -321,23 +331,23 @@ class KeyboardController {
 
               this.i++;
             }else if(this.i === 1){
-              document.getElementById(arrayCharacter[this.i]).style.backgroundColor = 'pink';
+              document.getElementById(arrayCharacter[this.i]).style.backgroundColor = 'rgba(0,0,0,0.98)';
 
               this.game.total.spell04[1] = false;
               this.game.total.spell05[1] = true;
               this.game.total.spell06[1] = false;
 
-              document.getElementById(arrayCharacter[this.i-1]).style.backgroundColor = 'white';
+              document.getElementById(arrayCharacter[this.i-1]).style.backgroundColor = 'rgba(0,0,0,0)';
               this.i++;
               
             }else if(this.i === 2){
-              document.getElementById(arrayCharacter[this.i]).style.backgroundColor = 'pink';
+              document.getElementById(arrayCharacter[this.i]).style.backgroundColor = 'rgba(0,0,0,0.98)';
 
               this.game.total.spell04[1] = false;
               this.game.total.spell05[1] = false;
               this.game.total.spell06[1] = true;
 
-              document.getElementById(arrayCharacter[this.i-1]).style.backgroundColor = 'white';
+              document.getElementById(arrayCharacter[this.i-1]).style.backgroundColor = 'rgba(0,0,0,0)';
               this.i=0;
             }
 

@@ -6,8 +6,6 @@ class Game {
     this.keyboardController = new KeyboardController(this);
     this.keyboardController.setKeyBindings();
 
-    this.animation = new Animation(this);
-
     this.scoreController = 0;
     this.scoreControllerCharacter = 0;
     this.scoreCharacter = 100;
@@ -75,7 +73,7 @@ class Game {
        let obstacleY = (this.magic.positionY + this.magic.startY)*GRID_SIZE;
        const obstacleWidth = 25;
 
-       const blockWidth = 40;
+       const blockWidth = 100;
        const blockHeight = 70;
         /*
         console.log('-------------------')
@@ -140,7 +138,7 @@ class Game {
        let obstacleY = (this.magic02.positionY + this.magic02.startY)*GRID_SIZE;
        const obstacleWidth = 25;
 
-       const blockWidth = 40;
+       const blockWidth = 100;
        const blockHeight = 70;
     
 
@@ -185,7 +183,7 @@ class Game {
          let obstacleY = (this.magic03.positionY + this.magic03.startY)*GRID_SIZE;
          const obstacleWidth = 25;
  
-         const blockWidth = 40;
+         const blockWidth = 100;
          const blockHeight = 70;
     
 
@@ -230,7 +228,7 @@ class Game {
         let obstacleY = (this.magic04.positionY + this.magic04.startY)*GRID_SIZE;
         const obstacleWidth = 25;
 
-        const blockWidth = 40;
+        const blockWidth = 100;
         const blockHeight = 70;
         /*
         console.log('-------------------')
@@ -288,7 +286,7 @@ class Game {
         let obstacleY = (this.magic05.positionY + this.magic05.startY)*GRID_SIZE;
         const obstacleWidth = 25;
 
-        const blockWidth = 40;
+        const blockWidth = 100;
         const blockHeight = 70;
         /*
         console.log('-------------------')
@@ -347,10 +345,10 @@ class Game {
         let obstacleY = (this.magic06.positionY + this.magic06.startY)*GRID_SIZE;
         const obstacleWidth = 25;
 
-        const blockWidth = 40;
+        const blockWidth = 100;
         const blockHeight = 70;
         
-       console.log('-------------------')
+       /*console.log('-------------------')
         console.log(divaX + blockWidth);
         console.log('>');
         console.log(obstacleX);
@@ -366,7 +364,7 @@ class Game {
         console.log(divaY);
         console.log('<');
         console.log(obstacleY + obstacleHeight);
-        debugger;
+        debugger;*/
 
         /*CHECKCOLLISION*/
         if(
@@ -410,14 +408,39 @@ class Game {
   }//CheckColision
 
   gameOver(){
+    
     if(this.scoreCharacter <= 0){
       document.getElementById('character-loose').style.display = 'inline';
-      document.getElementById('diva-loose').style.display = 'none';   
+      document.getElementById('diva-loose').style.display = 'none';
+
+      
     }
  
     if(this.scoreDiva <= 0){
       document.getElementById('character-loose').style.display = 'none';
+      document.getElementById('diva-loose').style.display = 'inline';
+
+      
+      
+
+    }
+
+    //Inspect spell quantify - diva loose
+    if(this.total.spell01[0] === 0 && this.total.spell02[0] === 0 && this.total.spell03[0] === 0){
+      document.getElementById('character-loose').style.display = 'none';
       document.getElementById('diva-loose').style.display = 'inline'; 
+
+     
+
+    }
+
+    //Inspect spell quantify - character loose
+    if(this.total.spell04[0] === 0 && this.total.spell05[0] === 0 && this.total.spell06[0] === 0){
+      document.getElementById('character-loose').style.display = 'inline';
+      document.getElementById('diva-loose').style.display = 'none';
+
+      
+
     }
   }
 
@@ -461,10 +484,10 @@ class Game {
 
 
     //position default:
-    this.diva.changeImage(this.divaMoviment,timestamp);
+    this.diva.changeImage(this.divaMoviment,'diva',timestamp);
 
     //position default:
-    this.character.changeImage(this.characterMoviment,timestamp);
+    this.character.changeImage(this.characterMoviment,'character',timestamp);
 
    
     if (this.magic) {
