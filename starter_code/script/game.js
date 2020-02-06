@@ -37,8 +37,10 @@ class Game {
     const $buttonStart = document.getElementById('btn-start');
     const $buttonReset = document.getElementById('btn-reset');
     const $buttonPause = document.getElementById('btn-pause');
+   
     
     $buttonStart.addEventListener('click', () => {
+      //document.getElementById('playerCanvas').style.visibility = 'visible';
       this.start();
     });
 
