@@ -49,6 +49,17 @@ body button {
 
 .instructions {
   background-color: #542710;
+  color:white;
+}
+
+.instructions img{
+  width: 7em;
+  height: auto;
+}
+
+.movimentInstructions{
+  display: inline-flex;
+  border: 1px solid white;
 }
 
 canvas{
