@@ -28,7 +28,7 @@ class Diva {
     this.timer = 0;
     this.imageCounter = 0;
     this.speedOfAnimation = 20;
-    this.imageCar = new Image();
+   
   }
 
   jump() {
@@ -92,7 +92,7 @@ class Diva {
   }//runLogic();
 
   changeImage(value, timestamp) {
-
+    
     //this.game.cleanCanvas();
 
     switch (value) {
@@ -125,6 +125,7 @@ class Diva {
   }
 
   runImageLoop(array, timestamp) {
+   
     const numberOfImages = array.length;
     //console.log(array);
 
@@ -140,15 +141,18 @@ class Diva {
   }
 
   paint(imageSrc) {
+    this.imageCar = new Image();
     const context = this.game.context;
     this.imageCar.src = imageSrc;
-    context.drawImage(
-      this.imageCar,
-      (this.positionX + this.startX) * GRID_SIZE,
-      (this.positionY + this.startY) * GRID_SIZE,
-      180,
-      180
-    );
+    this.imageCar.addEventListener('load', ()=>{
+      context.drawImage(
+        this.imageCar,
+        (this.positionX + this.startX) * GRID_SIZE,
+        (this.positionY + this.startY) * GRID_SIZE,
+        180,
+        180
+      )
+    });
     /*context.save();
     
     this.game.context.fillStyle = this.color;
