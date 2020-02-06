@@ -70,8 +70,13 @@ class Game {
     if(this.magic){
       if(this.total.spell01[1] === true){
         /* Magic Position */
-        const magicX = (this.magic.positionX + this.magic.startX)*GRID_SIZE;
-        const magicY = (this.magic.positionY + this.magic.startY)*GRID_SIZE;
+       let obstacleX = (this.magic.positionX + this.magic.startX)*GRID_SIZE;
+       const obstacleHeight  = 25;
+       let obstacleY = (this.magic.positionY + this.magic.startY)*GRID_SIZE;
+       const obstacleWidth = 25;
+
+       const blockWidth = 40;
+       const blockHeight = 70;
         /*
         console.log('-------------------')
         console.log(magicX + 25);
@@ -93,17 +98,10 @@ class Game {
 
         /*CHECKCOLLISION*/
         if(
-          /*RIGHT*/
-          Math.round(characterX) + 70 < Math.round(magicX) + 25 &&
-
-          /*UP*/
-          Math.round(characterY) < Math.round(magicY) + 25 &&
-
-          /*LEFT*/
-          Math.round(characterX) < Math.round(magicX) + 25 &&
-
-          /*BOTTOM*/
-          Math.round(characterY) +70 < Math.round(magicY) + 25
+          characterX + blockWidth > obstacleX &&
+          characterX < obstacleX + obstacleWidth &&
+          characterY + blockHeight > obstacleY &&
+          characterY < obstacleY + obstacleHeight
           
           ){
 
@@ -136,24 +134,22 @@ class Game {
     /*SPELL 02**************************************/
     if(this.magic02){
       if(this.total.spell02[1] === true){
-        /* Magic Position */
-        const magicX = (this.magic02.positionX + this.magic02.startX)*GRID_SIZE;
-        const magicY = (this.magic02.positionY + this.magic02.startY)*GRID_SIZE;
+       /* Magic Position */
+       let obstacleX = (this.magic02.positionX + this.magic02.startX)*GRID_SIZE;
+       const obstacleHeight  = 25;
+       let obstacleY = (this.magic02.positionY + this.magic02.startY)*GRID_SIZE;
+       const obstacleWidth = 25;
+
+       const blockWidth = 40;
+       const blockHeight = 70;
     
 
         /*CHECKCOLLISION*/
         if(
-           /*RIGHT*/
-           Math.round(characterX) + 70 < Math.round(magicX) + 25 &&
-
-           /*UP*/
-           Math.round(characterY) < Math.round(magicY) + 25 &&
- 
-           /*LEFT*/
-           Math.round(characterX) < Math.round(magicX) + 25 &&
- 
-           /*BOTTOM*/
-           Math.round(characterY) +70 < Math.round(magicY) + 25
+          characterX + blockWidth > obstacleX &&
+          characterX < obstacleX + obstacleWidth &&
+          characterY + blockHeight > obstacleY &&
+          characterY < obstacleY + obstacleHeight
           ){
         
           if(this.scoreController === 1){
@@ -183,23 +179,22 @@ class Game {
     if(this.magic03){
       if(this.total.spell03[1] === true){
         /* Magic Position */
-        const magicX = (this.magic03.positionX + this.magic03.startX)*GRID_SIZE;
-        const magicY = (this.magic03.positionY + this.magic03.startY)*GRID_SIZE;
+         /* Magic Position */
+         let obstacleX = (this.magic03.positionX + this.magic03.startX)*GRID_SIZE;
+         const obstacleHeight  = 25;
+         let obstacleY = (this.magic03.positionY + this.magic03.startY)*GRID_SIZE;
+         const obstacleWidth = 25;
+ 
+         const blockWidth = 40;
+         const blockHeight = 70;
     
 
         /*CHECKCOLLISION*/
         if(
-           /*RIGHT*/
-           Math.round(characterX) + 70 < Math.round(magicX) + 25 &&
-
-           /*UP*/
-           Math.round(characterY) < Math.round(magicY) + 25 &&
- 
-           /*LEFT*/
-           Math.round(characterX) < Math.round(magicX) + 25 &&
- 
-           /*BOTTOM*/
-           Math.round(characterY) +70 < Math.round(magicY) + 25
+          characterX + blockWidth > obstacleX &&
+          characterX < obstacleX + obstacleWidth &&
+          characterY + blockHeight > obstacleY &&
+          characterY < obstacleY + obstacleHeight
           ){
         
           if(this.scoreController === 1){
@@ -230,8 +225,13 @@ class Game {
     if(this.magic04){
       if(this.total.spell04[1] === true){
         /* Magic Position */
-        const magicX = (this.magic04.positionX + this.magic04.startX)*GRID_SIZE;
-        const magicY = (this.magic04.positionY + this.magic04.startY)*GRID_SIZE;
+        let obstacleX = (this.magic04.positionX + this.magic04.startX)*GRID_SIZE;
+        const obstacleHeight  = 25;
+        let obstacleY = (this.magic04.positionY + this.magic04.startY)*GRID_SIZE;
+        const obstacleWidth = 25;
+
+        const blockWidth = 40;
+        const blockHeight = 70;
         /*
         console.log('-------------------')
         console.log(magicY + 25);
@@ -250,17 +250,10 @@ class Game {
 
         /*CHECKCOLLISION*/
         if(
-           /*RIGHT*/
-           Math.round(divaX) + 70 < Math.round(magicX) + 25 &&
-
-           /*UP*/
-           Math.round(divaY) < Math.round(magicY) + 25 &&
- 
-           /*LEFT*/
-           Math.round(divaX) < Math.round(magicX) + 25 &&
- 
-           /*BOTTOM*/
-           Math.round(divaY) +70 < Math.round(magicY) + 25
+          divaX + blockWidth > obstacleX &&
+          divaX < obstacleX + obstacleWidth &&
+          divaY + blockHeight > obstacleY &&
+          divaY < obstacleY + obstacleHeight
           ){
         
           if(this.scoreControllerCharacter === 1){
@@ -290,8 +283,13 @@ class Game {
     if(this.magic05){
       if(this.total.spell05[1] === true){
         /* Magic Position */
-        const magicX = (this.magic05.positionX + this.magic05.startX)*GRID_SIZE;
-        const magicY = (this.magic05.positionY + this.magic05.startY)*GRID_SIZE;
+        let obstacleX = (this.magic05.positionX + this.magic05.startX)*GRID_SIZE;
+        const obstacleHeight  = 25;
+        let obstacleY = (this.magic05.positionY + this.magic05.startY)*GRID_SIZE;
+        const obstacleWidth = 25;
+
+        const blockWidth = 40;
+        const blockHeight = 70;
         /*
         console.log('-------------------')
         console.log(magicY + 25);
@@ -310,17 +308,10 @@ class Game {
 
         /*CHECKCOLLISION*/
         if(
-           /*RIGHT*/
-           Math.round(divaX) + 70 < Math.round(magicX) + 25 &&
-
-           /*UP*/
-           Math.round(divaY) < Math.round(magicY) + 25 &&
- 
-           /*LEFT*/
-           Math.round(divaX) < Math.round(magicX) + 25 &&
- 
-           /*BOTTOM*/
-           Math.round(divaY) +70 < Math.round(magicY) + 25
+          divaX + blockWidth > obstacleX &&
+          divaX < obstacleX + obstacleWidth &&
+          divaY + blockHeight > obstacleY &&
+          divaY < obstacleY + obstacleHeight
           ){
         
           if(this.scoreControllerCharacter === 1){
@@ -346,67 +337,6 @@ class Game {
      
     }//if(this.magic05)
 
-
-    
-    /*SPELL 05**************************************/
-    if(this.magic05){
-      if(this.total.spell05[1] === true){
-        /* Magic Position */
-        const magicX = (this.magic05.positionX + this.magic05.startX)*GRID_SIZE;
-        const magicY = (this.magic05.positionY + this.magic05.startY)*GRID_SIZE;
-        /*
-        console.log('-------------------')
-        console.log(magicY + 25);
-        console.log('=>');
-        console.log(divaY);
-        console.log(divaX+5);
-        console.log('>=')
-        console.log(magicX);
-        console.log(divaY +5)
-        console.log('>');
-        console.log(magicY);
-        console.log(magicX +25);
-        console.log('>=');
-        console.log(divaX);
-        debugger;*/
-
-        /*CHECKCOLLISION*/
-        if(
-           /*RIGHT*/
-           Math.round(divaX) + 70 < Math.round(magicX) + 25 &&
-
-           /*UP*/
-           Math.round(divaY) < Math.round(magicY) + 25 &&
- 
-           /*LEFT*/
-           Math.round(divaX) < Math.round(magicX) + 25 &&
- 
-           /*BOTTOM*/
-           Math.round(divaY) +70 < Math.round(magicY) + 25
-          ){
-        
-          if(this.scoreControllerCharacter === 1){
-              
-              /*CHECKCOLLISION SPELL 05*/
-              if(this.total.spell05[0]>=0){
-                
-                /*LIFE */
-                this.scoreDiva-= this.magic05.power;
-          
-                document.getElementById('score-diva').style.width = this.scoreDiva.toString() + '%';
-                document.getElementById('porcent-diva').innerHTML = this.scoreDiva.toString() + '%';
-    
-              }//this.total.spell05>=0
-    
-              this.scoreControllerCharacter = 0;
-            }
-          
-          
-        }
-        
-      }//if(collision)
-     
-    }//if(this.magic05)
 
     /*SPELL 06**************************************/
     if(this.magic06){
@@ -440,48 +370,16 @@ class Game {
 
         /*CHECKCOLLISION*/
         if(
-          /*RIGHT*/
-         // Math.round(divaX) + 40 < Math.round(magicX) + 25 &&
-
-          /*UP*/
-         // Math.round(divaY) < Math.round(magicY) + 25 &&
-
-          /*LEFT*/
-         // Math.round(divaX) < Math.round(magicX) + 25 &&
-
-          /*BOTTOM*/
-         // Math.round(divaY) + 70 < Math.round(magicY)
-          /*
-         const blockX = block.positionX;
-         const blockY = block.positionY;
-         const blockWidth = block.dimensions;
-         const blockHeight = block.dimensions;
-         const obstacleX = this.positionX;
-         const obstacleY = this.positionY;
-         const obstacleWidth = this.width;
-         const obstacleHeight = this.height;
-         if (
-           blockX + blockWidth > obstacleX &&
-           blockX < obstacleX + obstacleWidth &&
-           blockY + blockHeight > obstacleY &&
-           blockY < obstacleY + obstacleHeight)*/
-
+         
            divaX + blockWidth > obstacleX &&
            divaX < obstacleX + obstacleWidth &&
            divaY + blockHeight > obstacleY &&
            divaY < obstacleY + obstacleHeight
 
-
-          /*UP*/
-          /*Math.round(divaY) <= Math.round(magicY) + 25 &&
-          Math.round(divaX) + 50 >= Math.round(magicX) &&*/
-
-          /*BOTTOM*/
-          //Math.round(divaY) + 50 > Math.round(magicY) 
           ){
         
           if(this.scoreControllerCharacter === 1){
-             console.log('COLISSIIIIIIiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiON');
+             
               /*CHECKCOLLISION SPELL 06*/
               if(this.total.spell06[0]>=0){
                 
@@ -561,13 +459,14 @@ class Game {
   paint(timestamp) {
     this.cleanCanvas();
 
+
     //position default:
     this.diva.changeImage(this.divaMoviment,timestamp);
 
     //position default:
     this.character.changeImage(this.characterMoviment,timestamp);
-    
 
+   
     if (this.magic) {
       this.magic.paint();
     }

@@ -17,10 +17,10 @@ class KeyboardController {
 
       const controls = {
         //-DIVA CONTROLER ------:
-        38: 'jumpDiva',   //space
+        38: 'jumpDiva',   //arrowUp
         37: 'left',       //arrowleft
         39: 'right',      //arrowright
-        32: 'spellDiva',   //arrowup
+        32: 'spellDiva',   //space
         40: 'changeSpellDiva', //arrowdown
 
         //-CHACARACTER CONTROLER ------:
@@ -94,7 +94,7 @@ class KeyboardController {
               
             } else if(this.game.total.spell01[0] <= 0){
               this.game.total.spell01[1] = false;
-              console.log('this.game.total.spell01[1] === true '+ this.game.total.spell01[1])
+             
             }
 
           /*SPELL 02 SELECT*/ 

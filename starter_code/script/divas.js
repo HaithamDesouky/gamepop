@@ -93,6 +93,8 @@ class Diva {
 
   changeImage(value, timestamp) {
 
+    //this.game.cleanCanvas();
+
     switch (value) {
       case 'characterIdle':
         this.speedOfAnimation = 20;
