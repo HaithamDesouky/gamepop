@@ -6,10 +6,11 @@ class Game {
     this.keyboardController = new KeyboardController(this);
     this.keyboardController.setKeyBindings();
 
+    this.isRunning = false;
+    
     this.scoreController = 0;
     this.scoreControllerCharacter = 0;
     this.scoreCharacter = 100;
-
     this.scoreDiva = 100;
     
     this.total={
@@ -409,18 +410,45 @@ class Game {
     
   }//CheckColision
 
+  reset() {
+    
+
+    this.diva = new Diva(this, 10, 0,-8,INICIAL_DX,INICIAL_DY,'pink', divaImages);
+    this.character = new Diva(this,10, 0,-8,INICIAL_CX,INICIAL_CY, 'green', characterImages);
+
+    this.scoreCharacter = 100;
+    this.scoreDiva = 100;
+
+    document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
+    document.getElementById('porcent-character').innerHTML = this.scoreDiva.toString() + '%';
+
+
+    document.getElementById('score-diva').style.width = this.scoreCharacter.toString() + '%';
+    document.getElementById('porcent-diva').innerHTML = this.scoreCharacter.toString() + '%';
+
+    this.characterMoviment = 'characterIdle';
+    this.divaMoviment = 'characterIdle';
+
+    if (!this.isRunning) {
+      this.isRunning = true;
+      this.loop();
+    }
+    
+    }
+
   gameOver(){
     
     if(this.scoreCharacter <= 0){
-      document.getElementById('character-loose').style.display = 'inline';
-      document.getElementById('diva-loose').style.display = 'none';
+      document.getElementById('character-loose').style.visibility='visible';
+      document.getElementById('diva-loose').style.visibility = 'hidden';
 
-      
     }
  
     if(this.scoreDiva <= 0){
-      document.getElementById('character-loose').style.display = 'none';
-      document.getElementById('diva-loose').style.display = 'inline';
+      document.getElementById('character-loose').style.visibility = 'hidden';
+      document.getElementById('diva-loose').style.visibility='visible';
+
+      
 
       
       
@@ -429,20 +457,26 @@ class Game {
 
     //Inspect spell quantify - diva loose
     if(this.total.spell01[0] === 0 && this.total.spell02[0] === 0 && this.total.spell03[0] === 0){
-      document.getElementById('character-loose').style.display = 'none';
-      document.getElementById('diva-loose').style.display = 'inline'; 
+      document.getElementById('character-loose').style.visibility = 'hidden';
+      document.getElementById('diva-loose').style.visibility='visible';
+
+      
 
      
-
+      
     }
 
     //Inspect spell quantify - character loose
     if(this.total.spell04[0] === 0 && this.total.spell05[0] === 0 && this.total.spell06[0] === 0){
-      document.getElementById('character-loose').style.display = 'inline';
-      document.getElementById('diva-loose').style.display = 'none';
 
-      
+      document.getElementById('character-loose').style.display='inline-flex';
+      document.getElementById('diva-loose').style.visibility = 'hidden';
 
+      document.getElementById('gameOver').style.backgroundImage = "url('./images/GameItens/back.png')";
+
+     
+
+      //console.log(this.isRunning);
     }
   }
 
@@ -484,7 +518,8 @@ class Game {
   paint(timestamp) {
     this.cleanCanvas();
 
-
+    
+      
     //position default:
     this.diva.changeImage(this.divaMoviment,'diva',timestamp);
 
@@ -519,6 +554,9 @@ class Game {
     if(this.magicCharacter) {
       this.magicCharacter.paint();
     }
+
+    
+    
   }
 
   loop(timestamp) {
@@ -534,37 +572,20 @@ class Game {
   }
 
   start () {
+
+    
     this.reset();
     //this.loop();
   }
 
 
-  reset() {
-    this.diva = new Diva(this, 10, 0,-8,INICIAL_DX,INICIAL_DY,'pink', divaImages);
-    this.character = new Diva(this,10, 0,-8,INICIAL_CX,INICIAL_CY, 'green', characterImages);
+  
 
-    this.scoreCharacter = 100;
-    this.scoreDiva = 100;
-
-    document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
-    document.getElementById('porcent-diva').innerHTML = this.scoreDiva.toString() + '%';
-
-
-    document.getElementById('porcent-character').innerHTML = this.scoreCharacter.toString() + '%';
-    document.getElementById('porcent-diva').innerHTML = this.scoreCharacter.toString() + '%';
-
+  togglePause () {
     if (!this.isRunning) {
       this.isRunning = true;
       this.loop();
-    }
-    
-  }
-
-  togglePause () {
-    if (this.isRunning === false) {
-      this.isRunning = true;
-      this.loop();
-    }else if(this.isRunning === true){
+    }else if(this.isRunning){
       this.isRunning = false;
     }
   }
