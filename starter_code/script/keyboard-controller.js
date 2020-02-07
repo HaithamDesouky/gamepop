@@ -44,6 +44,7 @@ class KeyboardController {
             
             
             this.game.diva.jump();
+            this.game.soundJumpCharacter.play();
 
             
 
@@ -57,8 +58,9 @@ class KeyboardController {
 
             this.game.divaMoviment = 'leftCharacter';
             this.game.diva.changeImage(this.game.divaMoviment,'diva',this.game.timestamp);
-
+            this.game.soundRunOrc.play();
             this.game.diva.move(value);
+
           break;
 
 
@@ -66,7 +68,7 @@ class KeyboardController {
 
             this.game.divaMoviment = 'rightCharacter';
             this.game.diva.changeImage(this.game.divaMoviment,'diva',this.game.timestamp);
-
+            this.game.soundRunOrc.play();
             this.game.diva.move(value);
             break;
 
@@ -75,6 +77,8 @@ class KeyboardController {
             this.game.divaMoviment = 'attackCharacter';
            
             this.game.diva.changeImage(this.game.divaMoviment,'diva',this.game.timestamp);
+
+            this.game.soundAttackOrc.play();
       
           /*SPELL 01 SELECT*/
           if(this.game.total.spell01[1] === true){
@@ -201,6 +205,7 @@ class KeyboardController {
 
             
             this.game.character.jump();
+            this.game.soundJumpCharacter.play();
 
             this.game.scoreCharacter -= 1;
             document.getElementById('score-character').style.width = this.game.scoreCharacter.toString() + '%';
@@ -220,6 +225,8 @@ class KeyboardController {
           /*Moviment*/
           case 'rightCharacter':
             this.game.character.move(value);
+            this.game.soundRunCharacter.play();
+
 
             this.game.characterMoviment = 'rightCharacter';
             this.game.character.changeImage(this.game.characterMoviment,'character', this.game.timestamp);
@@ -227,6 +234,8 @@ class KeyboardController {
 
           case 'leftCharacter':
             this.game.character.move(value);
+            this.game.soundRunCharacter.play();
+
 
             this.game.characterMoviment = 'leftCharacter';
             this.game.character.changeImage(this.game.characterMoviment,'character', this.game.timestamp);
@@ -238,6 +247,8 @@ class KeyboardController {
 
             this.game.characterMoviment = 'attackCharacter';
             this.game.character.changeImage(this.game.characterMoviment,'character', this.game.timestamp);
+
+            this.game.soundAttackCharacter.play();
           
           /*SPELL 04 SELECT*/
           if(this.game.total.spell04[1] === true){

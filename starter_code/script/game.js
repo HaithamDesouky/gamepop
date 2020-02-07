@@ -27,6 +27,12 @@ class Game {
     this.characterMoviment = 'characterIdle';
     this.divaMoviment = 'characterIdle';
 
+    this.soundAttackCharacter = document.getElementById('soundAttackCharacter');
+    this.soundAttackOrc = document.getElementById('soundAttackOrc');
+    this.soundJumpCharacter = document.getElementById('soundJumpCharacter');
+    this.soundRunCharacter = document.getElementById('soundRunCharacter');
+    this.soundRunOrc = document.getElementById('soundRunOrc');
+
   }
 
   cleanCanvas() {
