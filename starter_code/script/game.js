@@ -465,6 +465,23 @@ class Game {
     this.characterMoviment = 'characterIdle';
     this.divaMoviment = 'characterIdle';
 
+
+    /*SPELL total*/
+    this.total.spell01[0] = 15;
+    document.getElementById('spell01').innerText = this.total.spell01[0];
+    this.total.spell02[0] = 10;
+    document.getElementById('spell02').innerText = this.total.spell02[0];
+    this.total.spell03[0]=5;
+    document.getElementById('spell03').innerText = this.total.spell03[0];
+
+    this.total.spell04[0] = 15;
+    document.getElementById('spell04').innerText = this.total.spell04[0];
+    this.total.spell05[0] = 10;
+    document.getElementById('spell05').innerText = this.total.spell05[0];
+    this.total.spell06[0]=5;
+    document.getElementById('spell06').innerText = this.total.spell06[0];
+
+
     if (!this.isRunning) {
       this.isRunning = true;
       this.loop();
