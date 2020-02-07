@@ -32,6 +32,7 @@ class Game {
     this.soundJumpCharacter = document.getElementById('soundJumpCharacter');
     this.soundRunCharacter = document.getElementById('soundRunCharacter');
     this.soundRunOrc = document.getElementById('soundRunOrc');
+    this.backgroundSong =document.getElementById('backgroundSong');
 
   }
 
@@ -569,8 +570,9 @@ class Game {
     this.runLogic();
     this.paint(timestamp);
     this.checkCollision();
-    this.gameOver();
-
+    this.gameOver();   
+    this.backgroundSong.play();
+    
     if(this.isRunning){
       window.requestAnimationFrame(timestamp => this.loop(timestamp));
     }
@@ -578,7 +580,7 @@ class Game {
   }
 
   start () {
-
+    
     
     this.reset();
     //this.loop();
