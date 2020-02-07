@@ -70,7 +70,7 @@ class Diva {
           }
       }*/
 
-      if (newPosition.x + this.startX <= 17 && newPosition.x + this.startX > 4) {
+      if (newPosition.x + this.startX <= 15 && newPosition.x + this.startX > 4) {
         this.positionX = newPosition.x;
       }
 
