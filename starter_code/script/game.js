@@ -153,9 +153,11 @@ class Game {
               /*LIFE */
               this.scoreCharacter-= this.magic.power;
 
-              document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
-              document.getElementById('porcent-character').innerHTML = this.scoreCharacter.toString() + '%';
-
+              if(this.scoreCharacter>=0){
+                document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
+                document.getElementById('porcent-character').innerHTML = this.scoreCharacter.toString() + '%';
+              }
+              
               
               }//this.total.spell01>=0 
 
@@ -198,8 +200,11 @@ class Game {
                 /*LIFE */
                 this.scoreCharacter-= this.magic02.power;
 
-                document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
-                document.getElementById('porcent-character').innerHTML = this.scoreCharacter.toString() + '%';
+                if(this.scoreCharacter>=0){
+                  document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
+                  document.getElementById('porcent-character').innerHTML = this.scoreCharacter.toString() + '%';
+                }
+                
 
               }//this.total.spell02>=0
     
@@ -243,8 +248,11 @@ class Game {
                 /*LIFE */
                 this.scoreCharacter-= this.magic03.power;
 
-                document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
-                document.getElementById('porcent-character').innerHTML = this.scoreCharacter.toString() + '%';
+                if(this.scoreCharacter>=0){
+                  document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
+                  document.getElementById('porcent-character').innerHTML = this.scoreCharacter.toString() + '%';
+                }
+                
     
               }//this.total.spell03>=0
     
@@ -302,8 +310,11 @@ class Game {
                 /*LIFE */
                 this.scoreDiva-= this.magic04.power;
 
-                document.getElementById('score-diva').style.width = this.scoreDiva.toString() + '%';
-                document.getElementById('porcent-diva').innerHTML = this.scoreDiva.toString() + '%';
+                if(this.scoreDiva >=0){
+                  document.getElementById('score-diva').style.width = this.scoreDiva.toString() + '%';
+                  document.getElementById('porcent-diva').innerHTML = this.scoreDiva.toString() + '%';
+                }
+                
 
               }//this.total.spell04>=0
     
@@ -360,8 +371,10 @@ class Game {
                 /*LIFE */
                 this.scoreDiva-= this.magic05.power;
           
-                document.getElementById('score-diva').style.width = this.scoreDiva.toString() + '%';
-                document.getElementById('porcent-diva').innerHTML = this.scoreDiva.toString() + '%';
+                if(this.scoreDiva >=0){
+                  document.getElementById('score-diva').style.width = this.scoreDiva.toString() + '%';
+                  document.getElementById('porcent-diva').innerHTML = this.scoreDiva.toString() + '%';
+                }
     
               }//this.total.spell05>=0
     
@@ -424,8 +437,10 @@ class Game {
                 /*LIFE */
                 this.scoreDiva-= this.magic06.power;
           
-                document.getElementById('score-diva').style.width = this.scoreDiva.toString() + '%';
-                document.getElementById('porcent-diva').innerHTML = this.scoreDiva.toString() + '%';
+                if(this.scoreDiva >=0){
+                  document.getElementById('score-diva').style.width = this.scoreDiva.toString() + '%';
+                  document.getElementById('porcent-diva').innerHTML = this.scoreDiva.toString() + '%';
+                }
     
               }//this.total.spell06>=0
     
