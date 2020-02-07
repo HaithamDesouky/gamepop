@@ -156,6 +156,7 @@ class Game {
               document.getElementById('score-character').style.width = this.scoreCharacter.toString() + '%';
               document.getElementById('porcent-character').innerHTML = this.scoreCharacter.toString() + '%';
 
+              
               }//this.total.spell01>=0 
 
               this.scoreController = 0;
