@@ -7,13 +7,15 @@
 body {
   padding: 0;
   text-align: center;
-  background-color:#103a27;
+ 
+  
   overflow-x: hidden;
   overflow-y: hidden;
 }
 
 section{
-  background-color:#103a27;
+ background-color:#103a27;
+  
 }
 
 
@@ -77,7 +79,7 @@ body button:hover{
 }
 
 .control{
-  margin: 1em 0em;
+ margin: 1em 0em;
 }
 
 button{
@@ -91,8 +93,10 @@ canvas{
 }
 
 #canvasColumn{
-  background-color: #103a27;
-  border: 2em solid #103a27;
+  /*background-color: #103a27;*/
+  background-image: url('./images/GameItens/background.jpg');
+  background-size:cover;
+  /*border: 2em solid #103a27;*/
 }
 
 #scoreMacro{
@@ -115,7 +119,7 @@ canvas{
   border:1px solid black;
   border-radius: 5%;
   align-items: center;
-  margin: 1em;
+  /*margin: 1em;*/
 }
 
 .scoreCharacter{
@@ -138,7 +142,7 @@ canvas{
   width: 10em;
   height: auto;
   text-align: center;
-  padding: 1em 1.5em;
+  /*padding: 1em 1.5em;*/
   color:white;
   font-family: 'Luckiest Guy', cursive;
   font-size: 0.9em;
