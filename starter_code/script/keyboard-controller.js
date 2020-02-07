@@ -44,7 +44,11 @@ class KeyboardController {
             
             
             this.game.diva.jump();
-            this.game.soundJumpCharacter.play();
+
+            if(this.game.isRunning){
+              this.game.soundJumpCharacter.play();
+            }
+            
 
             
 
@@ -58,7 +62,9 @@ class KeyboardController {
 
             this.game.divaMoviment = 'leftCharacter';
             this.game.diva.changeImage(this.game.divaMoviment,'diva',this.game.timestamp);
-            this.game.soundRunOrc.play();
+            if(this.game.isRunning){
+              this.game.soundRunOrc.play();
+            }
             this.game.diva.move(value);
 
           break;
@@ -68,7 +74,9 @@ class KeyboardController {
 
             this.game.divaMoviment = 'rightCharacter';
             this.game.diva.changeImage(this.game.divaMoviment,'diva',this.game.timestamp);
-            this.game.soundRunOrc.play();
+            if(this.game.isRunning){
+              this.game.soundRunOrc.play();
+            }
             this.game.diva.move(value);
             break;
 

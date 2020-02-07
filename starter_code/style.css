@@ -7,10 +7,14 @@
 body {
   padding: 0;
   text-align: center;
-  background-color: #542710;
-  
+  background-color:#103a27;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
+section{
+  background-color:#103a27;
+}
 
 
 /********INSTRUCTIONS*/
@@ -58,9 +62,13 @@ body button:hover{
     padding: 20px 0px;
 }
 
-.instructions {
+.instructions{
   background-color: #542710;
   color:white;
+  border: 1em solid rgba(189,106,54,0.8);
+  border-radius: 5%;
+  background-image: url('./images/GameItens/backgroundspell.jpg.png');
+  background-size: contain;
 }
 
 .instructions img{
@@ -68,9 +76,12 @@ body button:hover{
   height: auto;
 }
 
-.movimentInstructions{
-  height: 5em;
-  width: 5em;
+.control{
+  margin: 1em 0em;
+}
+
+button{
+  padding-left: 1em;
 }
 
 canvas{
@@ -79,22 +90,42 @@ canvas{
   border-radius: 5%;
 }
 
+#canvasColumn{
+  background-color: #103a27;
+  border: 2em solid #103a27;
+}
+
+#scoreMacro{
+  background-color: #542710;
+  color:white;
+  border: 0.2em solid rgba(189,106,54,0.8);
+  border-radius: 6%;
+  background-image: url('./images/GameItens/backgroundspell.jpg.png');
+  background-size: contain;
+  margin-top: 0;
+  font-family: 'Luckiest Guy', cursive;
+
+  
+}
+
 
 .score{
-  width: 200px;
-  height: 25px;
+  width: 15em;
+  height: 1.5em;
   border:1px solid black;
+  border-radius: 5%;
   align-items: center;
+  margin: 1em;
 }
 
 .scoreCharacter{
-  background-color: green;
+  background-color:  gray;
   height: 100%;
 }
 
 
 .scoreDiva{
-  background-color: pink;
+  background-color: #103a27;
   height: 100%;
 }
 
@@ -111,6 +142,7 @@ canvas{
   color:white;
   font-family: 'Luckiest Guy', cursive;
   font-size: 1em;
+  border-radius: 5%;
 }
 .spellsImages{
   width:auto;

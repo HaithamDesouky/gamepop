@@ -38,13 +38,13 @@
           <div class="row">
 
             <!--ORC INSTRUCTIONS-->
-            <div class="col d-flex justify-content-center">
+            <div class="col d-flex justify-content-center control">
               <img src="./images/GameItens/keyboardDiva1.png">
               <img src="./images/Orc/IdleBlinking/00.png">
             </div>
 
             <!--Character Instructions--> 
-            <div class="col d-flex justify-content-center">
+            <div class="col d-flex justify-content-center control">
               <img src="./images/GameItens/keyboardCharacter.png">
               <img src="./images/Character/IdleBlinking/00.png">
             </div>
@@ -53,10 +53,10 @@
 
           <!--BUTTON ROW-->
           <div class="row">
-            <div class="col">
-              <button type="button" id="btn-start">Start</button>
-              <button type="button" id="btn-reset">Reset</button>
-              <button type="button" id="btn-pause">Pause</button>
+            <div class="col d-flex justify-content-center">
+              <button type="button" id="btn-start" class="ml-3">Start</button>
+              <button type="button" id="btn-reset" class="ml-3">Reset</button>
+              <button type="button" id="btn-pause" class="ml-3">Pause</button>
             </div>
           </div>
           
@@ -65,15 +65,15 @@
 
       <!--CANVAS COLUMN-->
 
-      <div class="col-8">
+      <div class="col-8" id="canvasColumn">
 
-        <div id="canvasColumn">
+        <div >
         <!--SCORE-->
         <div class="row" >
-          <div class="col d-flex justify-content-center align-items-center">
+          <div class="col d-flex justify-content-center align-items-center " id="scoreMacro">
           
             <!--Score Row Character-->
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center align-items-center">
               <div class="score">
                 <div class="scoreCharacter" id="score-character" style="width:100%">
                 </div>
@@ -82,7 +82,7 @@
             </div>
 
             <!--Score Row Diva-->
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center align-items-center">
               <div class="score">
                 <div class="scoreDiva" id="score-diva" style="width:100%">
                 </div>
@@ -114,7 +114,7 @@
         <!--SPELL ROWS-->
         <div class="row">
           <!--CHARACTER SPELLS-->
-          <div class="col d-flex justify-content-center">
+          <div class="col d-flex justify-content-start ">
 
             <!--SPELLS CHARACTER-->
 

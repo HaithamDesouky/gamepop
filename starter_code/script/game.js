@@ -34,6 +34,8 @@ class Game {
     this.soundRunOrc = document.getElementById('soundRunOrc');
     this.backgroundSong =document.getElementById('backgroundSong');
 
+    this.imageGameOver01 = new Image();
+
   }
 
   cleanCanvas() {
@@ -446,45 +448,60 @@ class Game {
   gameOver(){
     
     if(this.scoreCharacter <= 0){
-      document.getElementById('character-loose').style.visibility='visible';
-      document.getElementById('diva-loose').style.visibility = 'hidden';
-
+      
+      this.cleanCanvas();
+      this.imageGameOver01.src = '../images/GameItens/orcwon.png';
+      this.context.drawImage(
+        this.imageGameOver01,
+        250,
+        150,
+        250,
+        200
+      );
     }
  
     if(this.scoreDiva <= 0){
-      document.getElementById('character-loose').style.visibility = 'hidden';
-      document.getElementById('diva-loose').style.visibility='visible';
-
       
-
-      
-      
-
+      this.cleanCanvas();
+      this.imageGameOver01.src = '../images/GameItens/elfwon.png';
+      this.context.drawImage(
+        this.imageGameOver01,
+        250,
+        150,
+        250,
+        200
+      );
     }
 
     //Inspect spell quantify - diva loose
     if(this.total.spell01[0] === 0 && this.total.spell02[0] === 0 && this.total.spell03[0] === 0){
-      document.getElementById('character-loose').style.visibility = 'hidden';
-      document.getElementById('diva-loose').style.visibility='visible';
-
       
-
-     
-      
+      this.cleanCanvas();
+      this.imageGameOver01.src = '../images/GameItens/elfwon.png';
+      this.context.drawImage(
+        this.imageGameOver01,
+        250,
+        150,
+        250,
+        200
+      );
     }
 
     //Inspect spell quantify - character loose
     if(this.total.spell04[0] === 0 && this.total.spell05[0] === 0 && this.total.spell06[0] === 0){
-
-      document.getElementById('character-loose').style.display='inline-flex';
-      document.getElementById('diva-loose').style.visibility = 'hidden';
-
-      document.getElementById('gameOver').style.backgroundImage = "url('./images/GameItens/back.png')";
-
-     
-
-      //console.log(this.isRunning);
+      this.backgroundSong.pause();
+      this.cleanCanvas();
+      this.imageGameOver01.src = '../images/GameItens/orcwon.png';
+      this.context.drawImage(
+        this.imageGameOver01,
+        250,
+        150,
+        250,
+        200
+      ); 
     }
+
+    
   }
 
 
