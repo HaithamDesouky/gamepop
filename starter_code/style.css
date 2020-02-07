@@ -141,16 +141,20 @@ canvas{
   padding: 1em 1.5em;
   color:white;
   font-family: 'Luckiest Guy', cursive;
-  font-size: 1em;
+  font-size: 0.9em;
   border-radius: 5%;
 }
 .spellsImages{
   width:auto;
-  height:3em;
+  height:2em;
 }
 
 #macroSpell01, #macroSpell04{
   background-color: rgba(0,0,0,0.98);
+}
+
+.spell h4{
+  font-size: 1em;
 }
 
 

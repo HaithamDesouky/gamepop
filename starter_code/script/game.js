@@ -14,13 +14,13 @@ class Game {
     this.scoreDiva = 100;
     
     this.total={
-      spell01: [10,true],
-      spell02: [5,false],
+      spell01: [15,true],
+      spell02: [10,false],
       spell03: [5,false],
-      spell04: [5,true],
-      spell05: [5,false],
+      spell04: [15,true],
+      spell05: [10,false],
       spell06: [5,false]
-    }
+    };
 
     this.setControlBindings();
 
@@ -37,6 +37,33 @@ class Game {
     this.imageGameOver01 = new Image();
 
   }
+
+    /*AUDIOS*/
+  jumpAudio(){
+    let soundJumpCharacter = new Audio('./songs/jump01.wav');
+    soundJumpCharacter.play();
+  }
+
+  runAudioOrc(){
+    let runAudioOrc = new Audio('./songs/run02.wav');
+    runAudioOrc.play();
+  }
+
+  runAudioElf(){
+    let runAudioElf = new Audio('./songs/run01.wav');
+    runAudioElf.play();
+  }
+
+  spellOrc(){
+    let spellOrc = new Audio('./songs/attack02.wav');
+    spellOrc.play();
+  }
+
+  spellElf(){
+    let spellElf = new Audio('./songs/attack01.wav');
+    spellElf.play();
+  }
+ 
 
   cleanCanvas() {
     const context = this.context;

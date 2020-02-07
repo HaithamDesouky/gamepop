@@ -38,6 +38,8 @@ class KeyboardController {
           /*******DIVA**************/
           /*JUMP*/
           case 'jumpDiva':
+
+
             //position default:
             this.game.divaMoviment = 'jumpingCharacter';
             this.game.diva.changeImage(this.game.divaMoviment,'diva',this.game.timestamp);
@@ -46,7 +48,7 @@ class KeyboardController {
             this.game.diva.jump();
 
             if(this.game.isRunning){
-              this.game.soundJumpCharacter.play();
+              this.game.jumpAudio();
             }
             
 
@@ -63,7 +65,7 @@ class KeyboardController {
             this.game.divaMoviment = 'leftCharacter';
             this.game.diva.changeImage(this.game.divaMoviment,'diva',this.game.timestamp);
             if(this.game.isRunning){
-              this.game.soundRunOrc.play();
+              this.game.runAudioOrc();
             }
             this.game.diva.move(value);
 
@@ -75,7 +77,7 @@ class KeyboardController {
             this.game.divaMoviment = 'rightCharacter';
             this.game.diva.changeImage(this.game.divaMoviment,'diva',this.game.timestamp);
             if(this.game.isRunning){
-              this.game.soundRunOrc.play();
+              this.game.runAudioOrc();
             }
             this.game.diva.move(value);
             break;
@@ -86,7 +88,9 @@ class KeyboardController {
            
             this.game.diva.changeImage(this.game.divaMoviment,'diva',this.game.timestamp);
 
-            this.game.soundAttackOrc.play();
+            if(this.game.isRunning){
+              this.game.spellOrc();
+            }
       
           /*SPELL 01 SELECT*/
           if(this.game.total.spell01[1] === true){
@@ -95,7 +99,7 @@ class KeyboardController {
               this.game.total.spell01[0]--;
               document.getElementById('spell01').innerText = this.game.total.spell01[0];
               //THE SAME POSITION AS DIVA
-              this.game.magic = new Magic(this.game, 5, 0,0,INICIAL_DX,INICIAL_DY, 0, 0, 'left','spell01');
+              this.game.magic = new Magic(this.game, 3, 0,0,INICIAL_DX,INICIAL_DY, 0, 0, 'left','spell01');
 
               this.game.magic.positionY = this.game.diva.positionY;
               this.game.magic.positionX = this.game.diva.positionX;
@@ -137,8 +141,7 @@ class KeyboardController {
 
             /*SPELL 03 SELECT*/ 
           }else if(this.game.total.spell03[1] === true){
-            console.log('spell 03 select');
-
+            
 
             if(this.game.total.spell03[0] > 0 /*this.game.scoreDiva > 0*/){
 
@@ -158,7 +161,7 @@ class KeyboardController {
               
             } else if(this.game.total.spell03[0] <= 0){
               this.game.total.spell03[1] = false;
-              console.log('this.game.total.spell03[1] === true '+ this.game.total.spell03[1])
+              
             }
             
           }
@@ -213,8 +216,11 @@ class KeyboardController {
 
             
             this.game.character.jump();
-            this.game.soundJumpCharacter.play();
 
+            if(this.game.isRunning){
+              this.game.jumpAudio();
+            }
+           
             this.game.scoreCharacter -= 1;
             document.getElementById('score-character').style.width = this.game.scoreCharacter.toString() + '%';
             document.getElementById('porcent-character').innerHTML = this.game.scoreCharacter.toString() + '%';
@@ -233,7 +239,9 @@ class KeyboardController {
           /*Moviment*/
           case 'rightCharacter':
             this.game.character.move(value);
-            this.game.soundRunCharacter.play();
+            if(this.game.isRunning){
+              this.game.runAudioElf();
+            }
 
 
             this.game.characterMoviment = 'rightCharacter';
@@ -242,7 +250,9 @@ class KeyboardController {
 
           case 'leftCharacter':
             this.game.character.move(value);
-            this.game.soundRunCharacter.play();
+            if(this.game.isRunning){
+              this.game.runAudioElf();
+            }
 
 
             this.game.characterMoviment = 'leftCharacter';
@@ -256,7 +266,9 @@ class KeyboardController {
             this.game.characterMoviment = 'attackCharacter';
             this.game.character.changeImage(this.game.characterMoviment,'character', this.game.timestamp);
 
-            this.game.soundAttackCharacter.play();
+            if(this.game.isRunning){
+              this.game.spellElf();
+            }
           
           /*SPELL 04 SELECT*/
           if(this.game.total.spell04[1] === true){
@@ -265,7 +277,7 @@ class KeyboardController {
               this.game.total.spell04[0]--;
               document.getElementById('spell04').innerText = this.game.total.spell04[0];
               //THE SAME POSITION AS CHARACTER
-              this.game.magic04 = new Magic(this.game, 5, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','spell04');
+              this.game.magic04 = new Magic(this.game, 3, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','spell04');
 
             
 
@@ -290,7 +302,7 @@ class KeyboardController {
               this.game.total.spell05[0]--;
               document.getElementById('spell05').innerText = this.game.total.spell05[0];
               //THE SAME POSITION AS character
-              this.game.magic05 = new Magic(this.game, 20, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','spell05');
+              this.game.magic05 = new Magic(this.game, 5, 0,0,INICIAL_CX,INICIAL_CY, 0, 0, 'right','spell05');
 
             
 
