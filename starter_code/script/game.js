@@ -571,10 +571,13 @@ class Game {
     this.paint(timestamp);
     this.checkCollision();
     this.gameOver();   
-    this.backgroundSong.play();
+    
     
     if(this.isRunning){
+      this.backgroundSong.play();
       window.requestAnimationFrame(timestamp => this.loop(timestamp));
+    }else{
+      this.backgroundSong.pause();
     }
     
   }
