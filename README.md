@@ -1,5 +1,10 @@
 # Magical Forest
+
 A fun 2D game!
+
+<div align="center">
+  <img src="https://res.cloudinary.com/ddz8awd1y/image/upload/c_scale,h_644/v1585595251/magical-forest_lqy0vp.png" />
+</div>
 
 # Languages:
 - HTML/Canvas
